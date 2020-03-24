@@ -1,0 +1,20 @@
+2020-03-24T03:31:27.3443288Z ##[section]Starting: Initialize job
+2020-03-24T03:31:27.3444132Z Agent name: 'cypJS0002TV'
+2020-03-24T03:31:27.3444490Z Agent machine name: 'cypJS0002TV'
+2020-03-24T03:31:27.3444735Z Current agent version: '2.165.0'
+2020-03-24T03:31:27.3452654Z Agent running as: 'xmiku'
+2020-03-24T03:31:27.3608809Z Prepare build directory.
+2020-03-24T03:31:27.3944725Z Set build variables.
+2020-03-24T03:31:27.3975847Z Download all required tasks.
+2020-03-24T03:31:27.4089113Z Downloading task: PowerShell (2.165.0)
+2020-03-24T03:31:27.8222161Z Downloading task: PowerShell (1.2.3)
+2020-03-24T03:31:27.8861661Z Downloading task: NodeTool (0.166.0)
+2020-03-24T03:31:28.1285087Z Downloading task: RestoreCache (1.0.18)
+2020-03-24T03:31:29.2366482Z Downloading task: ExtractFiles (1.165.0)
+2020-03-24T03:31:29.5546149Z Downloading task: Yarn (3.0.1999)
+2020-03-24T03:31:30.0586121Z Downloading task: ArchiveFiles (2.161.0)
+2020-03-24T03:31:30.2624763Z Downloading task: SaveCache (1.0.18)
+2020-03-24T03:31:31.5445410Z Downloading task: NuGetCommand (2.166.0)
+2020-03-24T03:31:34.5521240Z Downloading task: PublishPipelineArtifact (1.2.2)
+2020-03-24T03:31:34.6732343Z Start tracking orphan processes.
+2020-03-24T03:31:34.6786746Z ##[section]Finishing: Initialize job

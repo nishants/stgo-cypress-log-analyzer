@@ -1,0 +1,10 @@
+2020-03-24T03:40:51.6079112Z ##[section]Starting: Get Node.js version from package.json
+2020-03-24T03:40:51.6198546Z ==============================================================================
+2020-03-24T03:40:51.6199167Z Task         : PowerShell
+2020-03-24T03:40:51.6199943Z Description  : Run a PowerShell script
+2020-03-24T03:40:51.6200405Z Version      : 1.2.3
+2020-03-24T03:40:51.6200861Z Author       : Microsoft Corporation
+2020-03-24T03:40:51.6201520Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkID=613736)
+2020-03-24T03:40:51.6202247Z ==============================================================================
+2020-03-24T03:40:51.6310387Z ##[command]. 'C:\Users\xmiku\AppData\Local\Temp\1\77f89f45-4953-425c-b29b-5063defc02b7.ps1' 
+2020-03-24T03:40:52.3852833Z ##[section]Finishing: Get Node.js version from package.json

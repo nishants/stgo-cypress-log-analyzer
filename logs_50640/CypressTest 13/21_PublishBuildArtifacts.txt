@@ -1,0 +1,16 @@
+2020-03-24T04:05:36.6837150Z ##[section]Starting: PublishBuildArtifacts
+2020-03-24T04:05:36.6937829Z ==============================================================================
+2020-03-24T04:05:36.6938177Z Task         : Publish build artifacts
+2020-03-24T04:05:36.6938521Z Description  : Publish build artifacts to Azure Pipelines or a Windows file share
+2020-03-24T04:05:36.6938817Z Version      : 1.158.1
+2020-03-24T04:05:36.6939061Z Author       : Microsoft Corporation
+2020-03-24T04:05:36.6939420Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/publish-build-artifacts
+2020-03-24T04:05:36.6939832Z ==============================================================================
+2020-03-24T04:05:37.1319488Z ##[section]Async Command Start: Upload Artifact
+2020-03-24T04:05:37.1320012Z Uploading 159 files
+2020-03-24T04:05:42.2435952Z Total file: 159 ---- Processed file: 50 (31%)
+2020-03-24T04:05:51.5686295Z File upload succeed.
+2020-03-24T04:05:51.5686635Z Upload 'd:\work\1\a' to file container: '#/9199216/drop'
+2020-03-24T04:05:51.5687099Z Associated artifact 378025 with build 50640
+2020-03-24T04:05:51.5687386Z ##[section]Async Command End: Upload Artifact
+2020-03-24T04:05:51.5688612Z ##[section]Finishing: PublishBuildArtifacts

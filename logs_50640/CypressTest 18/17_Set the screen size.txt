@@ -1,0 +1,14 @@
+2020-03-24T03:43:36.2135367Z ##[section]Starting: Set the screen size
+2020-03-24T03:43:36.2232217Z ==============================================================================
+2020-03-24T03:43:36.2232556Z Task         : PowerShell
+2020-03-24T03:43:36.2232853Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:43:36.2233149Z Version      : 2.165.0
+2020-03-24T03:43:36.2233388Z Author       : Microsoft Corporation
+2020-03-24T03:43:36.2233744Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:43:36.2234396Z ==============================================================================
+2020-03-24T03:43:37.4742129Z Generating script.
+2020-03-24T03:43:37.5165209Z ========================== Starting Command Output ===========================
+2020-03-24T03:43:37.5420948Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\fe6a24c1-b7ea-4393-98f7-0867583eeb29.ps1'"
+2020-03-24T03:43:37.9794854Z Trying to set resolution 1600x1200
+2020-03-24T03:43:40.4952935Z Success
+2020-03-24T03:43:40.7378970Z ##[section]Finishing: Set the screen size

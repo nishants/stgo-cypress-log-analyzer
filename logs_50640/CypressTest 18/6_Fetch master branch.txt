@@ -1,0 +1,208 @@
+2020-03-24T03:40:46.5723044Z ##[section]Starting: Fetch master branch
+2020-03-24T03:40:46.5813748Z ==============================================================================
+2020-03-24T03:40:46.5814202Z Task         : PowerShell
+2020-03-24T03:40:46.5814480Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:40:46.5814724Z Version      : 2.165.0
+2020-03-24T03:40:46.5814931Z Author       : Microsoft Corporation
+2020-03-24T03:40:46.5815260Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:40:46.5815613Z ==============================================================================
+2020-03-24T03:40:48.2016588Z Generating script.
+2020-03-24T03:40:48.2020044Z ========================== Starting Command Output ===========================
+2020-03-24T03:40:48.2026693Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\a42ca273-166b-4ba6-bd12-8c5fb269fd94.ps1'"
+2020-03-24T03:40:48.5681327Z remote: Azure Repos        
+2020-03-24T03:40:48.6231380Z remote: 
+2020-03-24T03:40:48.6231721Z remote: Found 5428 objects to send. (56 ms)        
+2020-03-24T03:40:48.6552604Z Receiving objects:   0% (1/5428)
+2020-03-24T03:40:48.6562448Z Receiving objects:   1% (55/5428)
+2020-03-24T03:40:48.6575432Z Receiving objects:   2% (109/5428)
+2020-03-24T03:40:48.6587366Z Receiving objects:   3% (163/5428)
+2020-03-24T03:40:48.6595643Z Receiving objects:   4% (218/5428)
+2020-03-24T03:40:48.6603364Z Receiving objects:   5% (272/5428)
+2020-03-24T03:40:48.6613553Z Receiving objects:   6% (326/5428)
+2020-03-24T03:40:48.6621172Z Receiving objects:   7% (380/5428)
+2020-03-24T03:40:48.6629551Z Receiving objects:   8% (435/5428)
+2020-03-24T03:40:48.6637966Z Receiving objects:   9% (489/5428)
+2020-03-24T03:40:48.6646101Z Receiving objects:  10% (543/5428)
+2020-03-24T03:40:48.6658765Z Receiving objects:  11% (598/5428)
+2020-03-24T03:40:48.6704137Z Receiving objects:  12% (652/5428)
+2020-03-24T03:40:48.6713052Z Receiving objects:  13% (706/5428)
+2020-03-24T03:40:48.6726559Z Receiving objects:  14% (760/5428)
+2020-03-24T03:40:48.6794325Z Receiving objects:  15% (815/5428)
+2020-03-24T03:40:48.6805959Z Receiving objects:  16% (869/5428)
+2020-03-24T03:40:48.6816414Z Receiving objects:  17% (923/5428)
+2020-03-24T03:40:48.6862045Z Receiving objects:  18% (978/5428)
+2020-03-24T03:40:48.6876806Z Receiving objects:  19% (1032/5428)
+2020-03-24T03:40:48.6890614Z Receiving objects:  20% (1086/5428)
+2020-03-24T03:40:48.6911444Z Receiving objects:  21% (1140/5428)
+2020-03-24T03:40:48.6913763Z Receiving objects:  22% (1195/5428)
+2020-03-24T03:40:48.6916852Z Receiving objects:  23% (1249/5428)
+2020-03-24T03:40:48.6920476Z Receiving objects:  24% (1303/5428)
+2020-03-24T03:40:48.6924560Z Receiving objects:  25% (1357/5428)
+2020-03-24T03:40:48.6926280Z Receiving objects:  26% (1412/5428)
+2020-03-24T03:40:48.6929134Z Receiving objects:  27% (1466/5428)
+2020-03-24T03:40:48.6977201Z Receiving objects:  28% (1520/5428)
+2020-03-24T03:40:48.6979915Z Receiving objects:  29% (1575/5428)
+2020-03-24T03:40:48.6982482Z Receiving objects:  30% (1629/5428)
+2020-03-24T03:40:48.6987581Z Receiving objects:  31% (1683/5428)
+2020-03-24T03:40:48.6989177Z Receiving objects:  32% (1737/5428)
+2020-03-24T03:40:48.6992036Z Receiving objects:  33% (1792/5428)
+2020-03-24T03:40:48.6998891Z Receiving objects:  34% (1846/5428)
+2020-03-24T03:40:48.7001665Z Receiving objects:  35% (1900/5428)
+2020-03-24T03:40:48.7020522Z Receiving objects:  36% (1955/5428)
+2020-03-24T03:40:48.7025338Z Receiving objects:  37% (2009/5428)
+2020-03-24T03:40:48.7029634Z Receiving objects:  38% (2063/5428)
+2020-03-24T03:40:48.7031148Z Receiving objects:  39% (2117/5428)
+2020-03-24T03:40:48.7034995Z Receiving objects:  40% (2172/5428)
+2020-03-24T03:40:48.7098476Z Receiving objects:  41% (2226/5428)
+2020-03-24T03:40:48.7160552Z Receiving objects:  42% (2280/5428)
+2020-03-24T03:40:48.7239253Z Receiving objects:  43% (2335/5428)
+2020-03-24T03:40:48.7284041Z Receiving objects:  44% (2389/5428)
+2020-03-24T03:40:48.7504213Z Receiving objects:  45% (2443/5428)
+2020-03-24T03:40:48.7541439Z Receiving objects:  46% (2497/5428)
+2020-03-24T03:40:48.7570937Z Receiving objects:  47% (2552/5428)
+2020-03-24T03:40:48.7665180Z Receiving objects:  48% (2606/5428)
+2020-03-24T03:40:48.7699569Z Receiving objects:  49% (2660/5428)
+2020-03-24T03:40:48.7765891Z Receiving objects:  50% (2714/5428)
+2020-03-24T03:40:48.7808829Z Receiving objects:  51% (2769/5428)
+2020-03-24T03:40:48.8063395Z Receiving objects:  52% (2823/5428)
+2020-03-24T03:40:48.8150085Z Receiving objects:  53% (2877/5428)
+2020-03-24T03:40:48.8210976Z Receiving objects:  54% (2932/5428)
+2020-03-24T03:40:48.8261882Z Receiving objects:  55% (2986/5428)
+2020-03-24T03:40:48.8301493Z Receiving objects:  56% (3040/5428)
+2020-03-24T03:40:48.8326253Z Receiving objects:  57% (3094/5428)
+2020-03-24T03:40:48.8350425Z Receiving objects:  58% (3149/5428)
+2020-03-24T03:40:48.8369703Z Receiving objects:  59% (3203/5428)
+2020-03-24T03:40:48.8401037Z Receiving objects:  60% (3257/5428)
+2020-03-24T03:40:48.8433654Z Receiving objects:  61% (3312/5428)
+2020-03-24T03:40:48.8468184Z Receiving objects:  62% (3366/5428)
+2020-03-24T03:40:48.8537260Z Receiving objects:  63% (3420/5428)
+2020-03-24T03:40:48.8649031Z Receiving objects:  64% (3474/5428)
+2020-03-24T03:40:48.8717534Z Receiving objects:  65% (3529/5428)
+2020-03-24T03:40:48.8787557Z Receiving objects:  66% (3583/5428)
+2020-03-24T03:40:48.8870457Z Receiving objects:  67% (3637/5428)
+2020-03-24T03:40:48.8939600Z Receiving objects:  68% (3692/5428)
+2020-03-24T03:40:48.9029224Z Receiving objects:  69% (3746/5428)
+2020-03-24T03:40:48.9127308Z Receiving objects:  70% (3800/5428)
+2020-03-24T03:40:48.9413358Z Receiving objects:  71% (3854/5428)
+2020-03-24T03:40:48.9639809Z Receiving objects:  72% (3909/5428)
+2020-03-24T03:40:48.9750081Z Receiving objects:  73% (3963/5428)
+2020-03-24T03:40:48.9870043Z Receiving objects:  74% (4017/5428)
+2020-03-24T03:40:48.9990478Z Receiving objects:  75% (4071/5428)
+2020-03-24T03:40:49.2091001Z Receiving objects:  76% (4126/5428)
+2020-03-24T03:40:49.2697947Z Receiving objects:  77% (4180/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.2824354Z Receiving objects:  78% (4234/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.2970470Z Receiving objects:  79% (4289/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.3087171Z Receiving objects:  80% (4343/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.3423165Z Receiving objects:  81% (4397/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4007169Z Receiving objects:  82% (4451/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4446248Z Receiving objects:  83% (4506/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4492813Z Receiving objects:  84% (4560/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4508501Z Receiving objects:  85% (4614/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4525940Z Receiving objects:  86% (4669/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4572732Z Receiving objects:  87% (4723/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4655120Z Receiving objects:  88% (4777/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4692577Z Receiving objects:  89% (4831/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4767435Z Receiving objects:  90% (4886/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4777502Z Receiving objects:  91% (4940/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4790696Z Receiving objects:  92% (4994/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4826053Z Receiving objects:  93% (5049/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4829562Z Receiving objects:  94% (5103/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4838242Z Receiving objects:  95% (5157/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4845789Z Receiving objects:  96% (5211/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4850411Z Receiving objects:  97% (5266/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4854037Z Receiving objects:  98% (5320/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4861478Z Receiving objects:  99% (5374/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4863345Z Receiving objects: 100% (5428/5428), 3.79 MiB | 7.58 MiB/s
+2020-03-24T03:40:49.4864822Z Receiving objects: 100% (5428/5428), 6.73 MiB | 8.09 MiB/s, done.
+2020-03-24T03:40:49.4912509Z Resolving deltas:   0% (0/1912)
+2020-03-24T03:40:49.4971986Z Resolving deltas:   1% (20/1912)
+2020-03-24T03:40:49.5017813Z Resolving deltas:   2% (39/1912)
+2020-03-24T03:40:49.5131779Z Resolving deltas:   3% (58/1912)
+2020-03-24T03:40:49.5132487Z Resolving deltas:   4% (77/1912)
+2020-03-24T03:40:49.5133078Z Resolving deltas:   5% (96/1912)
+2020-03-24T03:40:49.5133528Z Resolving deltas:   6% (115/1912)
+2020-03-24T03:40:49.5143446Z Resolving deltas:   7% (135/1912)
+2020-03-24T03:40:49.5143922Z Resolving deltas:   8% (154/1912)
+2020-03-24T03:40:49.5144376Z Resolving deltas:   9% (173/1912)
+2020-03-24T03:40:49.5144840Z Resolving deltas:  10% (192/1912)
+2020-03-24T03:40:49.5145313Z Resolving deltas:  11% (212/1912)
+2020-03-24T03:40:49.5145763Z Resolving deltas:  12% (230/1912)
+2020-03-24T03:40:49.5146243Z Resolving deltas:  13% (249/1912)
+2020-03-24T03:40:49.5146692Z Resolving deltas:  14% (268/1912)
+2020-03-24T03:40:49.5147132Z Resolving deltas:  15% (290/1912)
+2020-03-24T03:40:49.5147610Z Resolving deltas:  16% (306/1912)
+2020-03-24T03:40:49.5148059Z Resolving deltas:  17% (328/1912)
+2020-03-24T03:40:49.5148525Z Resolving deltas:  18% (350/1912)
+2020-03-24T03:40:49.5148977Z Resolving deltas:  19% (364/1912)
+2020-03-24T03:40:49.5149425Z Resolving deltas:  20% (383/1912)
+2020-03-24T03:40:49.5154640Z Resolving deltas:  21% (402/1912)
+2020-03-24T03:40:49.5155119Z Resolving deltas:  22% (427/1912)
+2020-03-24T03:40:49.5156293Z Resolving deltas:  23% (454/1912)
+2020-03-24T03:40:49.5157528Z Resolving deltas:  24% (459/1912)
+2020-03-24T03:40:49.5157995Z Resolving deltas:  25% (485/1912)
+2020-03-24T03:40:49.5158441Z Resolving deltas:  26% (499/1912)
+2020-03-24T03:40:49.5158927Z Resolving deltas:  27% (524/1912)
+2020-03-24T03:40:49.5159366Z Resolving deltas:  28% (551/1912)
+2020-03-24T03:40:49.5159845Z Resolving deltas:  30% (581/1912)
+2020-03-24T03:40:49.5160276Z Resolving deltas:  32% (617/1912)
+2020-03-24T03:40:49.5160725Z Resolving deltas:  33% (632/1912)
+2020-03-24T03:40:49.5161183Z Resolving deltas:  34% (653/1912)
+2020-03-24T03:40:49.5161633Z Resolving deltas:  37% (725/1912)
+2020-03-24T03:40:49.5162066Z Resolving deltas:  41% (799/1912)
+2020-03-24T03:40:49.5162529Z Resolving deltas:  42% (813/1912)
+2020-03-24T03:40:49.5162966Z Resolving deltas:  43% (824/1912)
+2020-03-24T03:40:49.5167210Z Resolving deltas:  44% (848/1912)
+2020-03-24T03:40:49.5168128Z Resolving deltas:  46% (896/1912)
+2020-03-24T03:40:49.5168757Z Resolving deltas:  47% (899/1912)
+2020-03-24T03:40:49.5169378Z Resolving deltas:  48% (919/1912)
+2020-03-24T03:40:49.5169985Z Resolving deltas:  50% (956/1912)
+2020-03-24T03:40:49.5170607Z Resolving deltas:  51% (976/1912)
+2020-03-24T03:40:49.5171236Z Resolving deltas:  52% (1002/1912)
+2020-03-24T03:40:49.5171840Z Resolving deltas:  53% (1014/1912)
+2020-03-24T03:40:49.5195126Z Resolving deltas:  55% (1053/1912)
+2020-03-24T03:40:49.5211793Z Resolving deltas:  57% (1091/1912)
+2020-03-24T03:40:49.5212757Z Resolving deltas:  58% (1111/1912)
+2020-03-24T03:40:49.5239835Z Resolving deltas:  59% (1130/1912)
+2020-03-24T03:40:49.5247070Z Resolving deltas:  60% (1150/1912)
+2020-03-24T03:40:49.5280575Z Resolving deltas:  61% (1167/1912)
+2020-03-24T03:40:49.5285867Z Resolving deltas:  62% (1188/1912)
+2020-03-24T03:40:49.5301396Z Resolving deltas:  63% (1205/1912)
+2020-03-24T03:40:49.5311960Z Resolving deltas:  64% (1227/1912)
+2020-03-24T03:40:49.5320994Z Resolving deltas:  65% (1243/1912)
+2020-03-24T03:40:49.5328348Z Resolving deltas:  66% (1269/1912)
+2020-03-24T03:40:49.5351796Z Resolving deltas:  67% (1282/1912)
+2020-03-24T03:40:49.5374323Z Resolving deltas:  68% (1301/1912)
+2020-03-24T03:40:49.5403704Z Resolving deltas:  69% (1320/1912)
+2020-03-24T03:40:49.5443679Z Resolving deltas:  70% (1340/1912)
+2020-03-24T03:40:49.5559290Z Resolving deltas:  71% (1358/1912)
+2020-03-24T03:40:49.5704708Z Resolving deltas:  72% (1378/1912)
+2020-03-24T03:40:49.5705873Z Resolving deltas:  73% (1396/1912)
+2020-03-24T03:40:49.5716685Z Resolving deltas:  74% (1415/1912)
+2020-03-24T03:40:49.5851712Z Resolving deltas:  75% (1437/1912)
+2020-03-24T03:40:49.5900634Z Resolving deltas:  76% (1454/1912)
+2020-03-24T03:40:49.5992529Z Resolving deltas:  77% (1475/1912)
+2020-03-24T03:40:49.6114816Z Resolving deltas:  78% (1492/1912)
+2020-03-24T03:40:49.7009818Z Resolving deltas:  79% (1511/1912)
+2020-03-24T03:40:49.7010525Z Resolving deltas:  80% (1530/1912)
+2020-03-24T03:40:49.7011287Z Resolving deltas:  81% (1553/1912)
+2020-03-24T03:40:49.7011802Z Resolving deltas:  82% (1569/1912)
+2020-03-24T03:40:49.7012215Z Resolving deltas:  83% (1587/1912)
+2020-03-24T03:40:49.7482885Z Resolving deltas:  84% (1607/1912)
+2020-03-24T03:40:49.7484662Z Resolving deltas:  85% (1628/1912)
+2020-03-24T03:40:49.7485635Z Resolving deltas:  87% (1676/1912)
+2020-03-24T03:40:49.7486249Z Resolving deltas:  89% (1707/1912)
+2020-03-24T03:40:49.7486839Z Resolving deltas:  91% (1745/1912)
+2020-03-24T03:40:49.7487438Z Resolving deltas:  92% (1768/1912)
+2020-03-24T03:40:49.7488016Z Resolving deltas:  93% (1779/1912)
+2020-03-24T03:40:49.7488822Z Resolving deltas:  94% (1804/1912)
+2020-03-24T03:40:49.7954524Z Resolving deltas:  95% (1818/1912)
+2020-03-24T03:40:49.7982968Z Resolving deltas:  96% (1844/1912)
+2020-03-24T03:40:49.8036394Z Resolving deltas:  97% (1856/1912)
+2020-03-24T03:40:49.8090047Z Resolving deltas:  98% (1874/1912)
+2020-03-24T03:40:49.8185108Z Resolving deltas:  99% (1893/1912)
+2020-03-24T03:40:49.8187155Z Resolving deltas: 100% (1912/1912)
+2020-03-24T03:40:49.8189086Z Resolving deltas: 100% (1912/1912), completed with 53 local objects.
+2020-03-24T03:40:50.2930447Z From https://dev.azure.com/saxobank/Platforms/_git/SaxoTrader
+2020-03-24T03:40:50.2931234Z  * branch                master     -> FETCH_HEAD
+2020-03-24T03:40:50.2931696Z  * [new branch]          master     -> origin/master
+2020-03-24T03:40:50.6541631Z ##[section]Finishing: Fetch master branch

@@ -1,0 +1,43 @@
+2020-03-24T03:34:08.7262095Z ##[section]Starting: yarn build:css
+2020-03-24T03:34:08.7351419Z ==============================================================================
+2020-03-24T03:34:08.7351756Z Task         : Yarn task
+2020-03-24T03:34:08.7351969Z Description  : Executes Yarn
+2020-03-24T03:34:08.7352175Z Version      : 3.0.1999
+2020-03-24T03:34:08.7352404Z Author       : Geek Learning
+2020-03-24T03:34:08.7353098Z Help         : [More Information](https://github.com/geeklearningio/gl-vsts-tasks-yarn/wiki/Yarn) (Version 3.0.1999).
+
+Dear Angular and Ember CLI users, please check our [known issues](https://github.com/geeklearningio/gl-vsts-tasks-yarn/wiki/Known-Issues)
+2020-03-24T03:34:08.7353835Z ==============================================================================
+2020-03-24T03:34:09.2141893Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:34:09.3388538Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:34:09.4488765Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:34:09.4493153Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:34:09.4641371Z [command]C:\windows\system32\cmd.exe /D /S /C ""C:\Program Files (x86)\Yarn\bin\yarn.cmd" build:css"
+2020-03-24T03:34:10.2828538Z yarn run v1.22.0
+2020-03-24T03:34:10.3370907Z $ node ./build/scripts/less2css.js
+2020-03-24T03:34:12.0607501Z spa-black-ltr.css compiled!
+2020-03-24T03:34:12.0767111Z spa-black-rtl.css compiled!
+2020-03-24T03:34:12.2376548Z spa-white-ltr.css compiled!
+2020-03-24T03:34:12.2554868Z spa-white-rtl.css compiled!
+2020-03-24T03:34:12.6665823Z investor-black-ltr.css compiled!
+2020-03-24T03:34:12.6670073Z investor-black-rtl.css compiled!
+2020-03-24T03:34:12.8328961Z investor-white-rtl.css compiled!
+2020-03-24T03:34:12.8599074Z investor-white-ltr.css compiled!
+2020-03-24T03:34:13.8064546Z desktop-black-ltr.css compiled!
+2020-03-24T03:34:13.8224402Z desktop-black-rtl.css compiled!
+2020-03-24T03:34:14.0286147Z desktop-white-ltr.css compiled!
+2020-03-24T03:34:14.0592167Z desktop-white-rtl.css compiled!
+2020-03-24T03:34:15.4613562Z pro-black-ltr.css compiled!
+2020-03-24T03:34:15.5592362Z pro-black-rtl.css compiled!
+2020-03-24T03:34:15.7077970Z pro-white-rtl.css compiled!
+2020-03-24T03:34:15.7101817Z pro-white-ltr.css compiled!
+2020-03-24T03:34:15.7266029Z tablet-black-rtl.css compiled!
+2020-03-24T03:34:15.7621728Z tablet-black-ltr.css compiled!
+2020-03-24T03:34:15.8852304Z tablet-white-rtl.css compiled!
+2020-03-24T03:34:15.9152224Z tablet-white-ltr.css compiled!
+2020-03-24T03:34:16.7051811Z phone-black-ltr.css compiled!
+2020-03-24T03:34:16.7302877Z phone-black-rtl.css compiled!
+2020-03-24T03:34:16.9039383Z phone-white-ltr.css compiled!
+2020-03-24T03:34:16.9881271Z phone-white-rtl.css compiled!
+2020-03-24T03:34:17.0042903Z Done in 6.72s.
+2020-03-24T03:34:17.0441343Z ##[section]Finishing: yarn build:css

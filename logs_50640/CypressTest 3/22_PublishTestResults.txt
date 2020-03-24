@@ -1,0 +1,19 @@
+2020-03-24T04:08:51.9440611Z ##[section]Starting: PublishTestResults
+2020-03-24T04:08:51.9524013Z ==============================================================================
+2020-03-24T04:08:51.9524355Z Task         : Publish Test Results
+2020-03-24T04:08:51.9524615Z Description  : Publish test results to Azure Pipelines
+2020-03-24T04:08:51.9524841Z Version      : 2.166.0
+2020-03-24T04:08:51.9525064Z Author       : Microsoft Corporation
+2020-03-24T04:08:51.9525386Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/test/publish-test-results
+2020-03-24T04:08:51.9525776Z ==============================================================================
+2020-03-24T04:09:19.5467383Z [command]d:\work\_tasks\PublishTestResults_0b0f01ed-7dde-43ff-9cbb-e48954daf9b1\2.166.0\modules\TestResultsPublisher.exe @d:\work\_temp\3c25f560-6d85-11ea-bf19-991038c1bb37.txt
+2020-03-24T04:09:32.2801663Z No build level attachments to publish.
+2020-03-24T04:09:32.5146721Z Result Attachments will be stored in LogStore
+2020-03-24T04:09:32.5425516Z Run Attachments will be stored in LogStore
+2020-03-24T04:09:32.9720488Z Publishing test results to test run '1677182'.
+2020-03-24T04:09:32.9746181Z TestResults To Publish 143, Test run id:1677182
+2020-03-24T04:09:32.9811875Z Test results publishing 143, remaining: 0. Test run id: 1677182
+2020-03-24T04:09:35.6614917Z Published Test Run : https://dev.azure.com/saxobank/Platforms/_TestManagement/Runs?runId=1677182&_a=runCharts.
+2020-03-24T04:09:36.0930497Z ##[section]Async Command Start: PublishTestResultsToEvidenceStore
+2020-03-24T04:09:36.0930991Z ##[section]Async Command End: PublishTestResultsToEvidenceStore
+2020-03-24T04:09:36.0931938Z ##[section]Finishing: PublishTestResults

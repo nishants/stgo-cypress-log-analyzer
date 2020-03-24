@@ -1,0 +1,22 @@
+2020-03-24T03:43:32.1566248Z ##[section]Starting: Make the screenshots directory
+2020-03-24T03:43:32.1702320Z ==============================================================================
+2020-03-24T03:43:32.1702835Z Task         : PowerShell
+2020-03-24T03:43:32.1703344Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:43:32.1723827Z Version      : 2.165.0
+2020-03-24T03:43:32.1724274Z Author       : Microsoft Corporation
+2020-03-24T03:43:32.1724785Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:43:32.1725381Z ==============================================================================
+2020-03-24T03:43:33.2918043Z Generating script.
+2020-03-24T03:43:33.3323975Z ========================== Starting Command Output ===========================
+2020-03-24T03:43:33.3569918Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\5c5c8179-3ade-4fba-b02d-a681b33c8b00.ps1'"
+2020-03-24T03:43:33.9617233Z 
+2020-03-24T03:43:33.9617672Z 
+2020-03-24T03:43:33.9620297Z     Directory: D:\work\1\s\cypress
+2020-03-24T03:43:33.9620942Z 
+2020-03-24T03:43:33.9621345Z 
+2020-03-24T03:43:33.9625876Z Mode                LastWriteTime         Length Name                                                                  
+2020-03-24T03:43:33.9627500Z ----                -------------         ------ ----                                                                  
+2020-03-24T03:43:33.9630610Z d-----        3/24/2020   3:43 AM                screenshots                                                           
+2020-03-24T03:43:34.0142017Z 
+2020-03-24T03:43:34.0142546Z 
+2020-03-24T03:43:34.0774514Z ##[section]Finishing: Make the screenshots directory

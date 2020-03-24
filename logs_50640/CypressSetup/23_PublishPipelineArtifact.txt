@@ -1,0 +1,33 @@
+2020-03-24T03:39:34.3686303Z ##[section]Starting: PublishPipelineArtifact
+2020-03-24T03:39:34.3778464Z ==============================================================================
+2020-03-24T03:39:34.3778976Z Task         : Publish Pipeline Artifacts
+2020-03-24T03:39:34.3779343Z Description  : Publish (upload) a file or directory as a named artifact for the current run
+2020-03-24T03:39:34.3779783Z Version      : 1.2.2
+2020-03-24T03:39:34.3780022Z Author       : Microsoft Corporation
+2020-03-24T03:39:34.3780433Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/publish-pipeline-artifact
+2020-03-24T03:39:34.3780899Z ==============================================================================
+2020-03-24T03:39:34.7764077Z Artifact name input: frontend
+2020-03-24T03:39:34.7887662Z Uploading pipeline artifact from d:\work\1\s\dist\frontend for build #50640
+2020-03-24T03:39:35.6967448Z Information, ApplicationInsightsTelemetrySender will correlate events with X-TFS-Session d0ae2e4c-ad2e-4817-ad89-1e480a2eee75
+2020-03-24T03:39:35.7166836Z Information, DedupManifestArtifactClient will correlate http requests with X-TFS-Session d0ae2e4c-ad2e-4817-ad89-1e480a2eee75
+2020-03-24T03:39:36.1358870Z Information, 59 files processed.
+2020-03-24T03:39:36.1567811Z Information, 159 files processed.
+2020-03-24T03:39:36.1572805Z Information, Processed 159 files from d:\work\1\s\dist\frontend successfully.
+2020-03-24T03:39:40.7410045Z Information, Uploading 159 files from directory d:\work\1\s\dist\frontend to Drop service.
+2020-03-24T03:39:40.7410733Z Information, Uploaded 8,214,737 out of 69,704,688 bytes
+2020-03-24T03:39:40.7427000Z Information, Batcher OutputCount: 0  Uploader queue: 0  Active Upload sessions: 1.
+2020-03-24T03:39:42.5374742Z Information, Uploaded 39,495,756 out of 69,727,082 bytes
+2020-03-24T03:39:42.5375220Z Information, Content upload is done!
+2020-03-24T03:39:42.5383376Z Information, 
+2020-03-24T03:39:42.5383871Z Content upload statistics:
+2020-03-24T03:39:42.5384215Z Total Content: 139.4 MB
+2020-03-24T03:39:42.5384483Z Physical Content Uploaded: 38.3 MB
+2020-03-24T03:39:42.5384767Z Logical Content Uploaded: 39.5 MB
+2020-03-24T03:39:42.5385002Z Compression Saved: 1.2 MB
+2020-03-24T03:39:42.5385245Z Deduplication Saved: 99.9 MB
+2020-03-24T03:39:42.5385508Z Number of Chunks Uploaded: 594
+2020-03-24T03:39:42.5385668Z 
+2020-03-24T03:39:42.9141172Z Associated artifact 378012 with build 50640
+2020-03-24T03:39:43.0456986Z Information, ApplicationInsightsTelemetrySender correlated 2 events with X-TFS-Session d0ae2e4c-ad2e-4817-ad89-1e480a2eee75
+2020-03-24T03:39:43.0462429Z Uploading pipeline artifact finished.
+2020-03-24T03:39:43.0785577Z ##[section]Finishing: PublishPipelineArtifact

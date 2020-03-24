@@ -1,0 +1,22 @@
+2020-03-24T03:40:00.3902479Z ##[section]Starting: Initialize job
+2020-03-24T03:40:00.3903206Z Agent name: 'cpTst0006QT'
+2020-03-24T03:40:00.3903547Z Agent machine name: 'cpTst0006QT'
+2020-03-24T03:40:00.3903812Z Current agent version: '2.165.0'
+2020-03-24T03:40:00.3910947Z Agent running as: 'xmiku'
+2020-03-24T03:40:00.4120353Z Prepare build directory.
+2020-03-24T03:40:00.4463892Z Set build variables.
+2020-03-24T03:40:00.4498309Z Download all required tasks.
+2020-03-24T03:40:00.4619618Z Downloading task: PowerShell (2.165.0)
+2020-03-24T03:40:01.8910136Z Downloading task: PowerShell (1.2.3)
+2020-03-24T03:40:01.9746428Z Downloading task: NodeTool (0.166.0)
+2020-03-24T03:40:02.3071709Z Downloading task: RestoreCache (1.0.18)
+2020-03-24T03:40:03.7233926Z Downloading task: ExtractFiles (1.165.0)
+2020-03-24T03:40:04.8749318Z Downloading task: Yarn (3.0.1999)
+2020-03-24T03:40:05.3451963Z Downloading task: ArchiveFiles (2.161.0)
+2020-03-24T03:40:05.5775452Z Downloading task: SaveCache (1.0.18)
+2020-03-24T03:40:07.2270900Z Downloading task: DownloadPipelineArtifact (2.2.0)
+2020-03-24T03:40:07.4537850Z Downloading task: CopyFiles (2.164.0)
+2020-03-24T03:40:07.5870911Z Downloading task: PublishBuildArtifacts (1.158.1)
+2020-03-24T03:40:07.7207407Z Downloading task: PublishTestResults (2.166.0)
+2020-03-24T03:40:08.7115356Z Start tracking orphan processes.
+2020-03-24T03:40:08.7170786Z ##[section]Finishing: Initialize job

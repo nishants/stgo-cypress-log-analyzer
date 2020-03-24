@@ -1,0 +1,10 @@
+2020-03-24T03:40:00.2871511Z ##[section]Starting: Initialize job
+2020-03-24T03:40:00.2872492Z Agent name: 'cpTst0006PC'
+2020-03-24T03:40:00.2872812Z Agent machine name: 'cpTst0006PC'
+2020-03-24T03:40:00.2873045Z Current agent version: '2.165.0'
+2020-03-24T03:40:00.2880459Z Agent running as: 'xmiku'
+2020-03-24T03:40:00.2932710Z Prepare build directory.
+2020-03-24T03:40:00.3618826Z Set build variables.
+2020-03-24T03:40:00.3653416Z Download all required tasks.
+2020-03-24T03:40:00.4546433Z Start tracking orphan processes.
+2020-03-24T03:40:00.4601926Z ##[section]Finishing: Initialize job

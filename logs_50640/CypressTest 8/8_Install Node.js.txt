@@ -1,0 +1,11 @@
+2020-03-24T03:42:45.0749023Z ##[section]Starting: Install Node.js
+2020-03-24T03:42:45.0832642Z ==============================================================================
+2020-03-24T03:42:45.0832959Z Task         : Node.js tool installer
+2020-03-24T03:42:45.0833312Z Description  : Finds or downloads and caches the specified version spec of Node.js and adds it to the PATH
+2020-03-24T03:42:45.0833629Z Version      : 0.166.0
+2020-03-24T03:42:45.0833851Z Author       : Microsoft Corporation
+2020-03-24T03:42:45.0834159Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/tool/node-js
+2020-03-24T03:42:45.0834506Z ==============================================================================
+2020-03-24T03:42:45.3537237Z Found tool in cache: node 12.16.0 x64
+2020-03-24T03:42:45.3538924Z Prepending PATH environment variable with directory: d:\work\_tool\node\12.16.0\x64
+2020-03-24T03:42:45.3632954Z ##[section]Finishing: Install Node.js

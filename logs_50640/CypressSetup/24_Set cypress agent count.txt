@@ -1,0 +1,24 @@
+2020-03-24T03:39:43.0813353Z ##[section]Starting: Set cypress agent count
+2020-03-24T03:39:43.0903840Z ==============================================================================
+2020-03-24T03:39:43.0904131Z Task         : PowerShell
+2020-03-24T03:39:43.0904386Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:39:43.0904642Z Version      : 2.165.0
+2020-03-24T03:39:43.0904849Z Author       : Microsoft Corporation
+2020-03-24T03:39:43.0905157Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:39:43.0905538Z ==============================================================================
+2020-03-24T03:39:44.0240026Z Generating script.
+2020-03-24T03:39:44.0613759Z ========================== Starting Command Output ===========================
+2020-03-24T03:39:44.0861014Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\a20ee3a5-4ea0-412e-b949-6d427752d98f.ps1'"
+2020-03-24T03:39:44.5854401Z HEAD is now at a0266877a Merged PR 62887: #1170325 Fix pause dates in notification details component.
+2020-03-24T03:39:45.6874118Z Removing .babel-loader-cache/
+2020-03-24T03:39:45.6874487Z Removing cache/
+2020-03-24T03:39:45.6874660Z Removing dotless/
+2020-03-24T03:39:45.6874854Z Removing tmp_cache/
+2020-03-24T03:39:46.1473338Z yarn run v1.22.0
+2020-03-24T03:39:46.1973400Z $ node ./build/scripts/cypressRunner/setAgentCount.js
+2020-03-24T03:39:47.8774301Z no changed since
+2020-03-24T03:39:47.8778642Z mode full
+2020-03-24T03:39:47.8784239Z test file count 303
+2020-03-24T03:39:47.8784640Z all test files count 303
+2020-03-24T03:39:47.9018140Z Done in 1.76s.
+2020-03-24T03:39:48.2264264Z ##[section]Finishing: Set cypress agent count

@@ -1,0 +1,549 @@
+trigger:
+  branches:
+    include:
+    - master
+    - release*
+variables:
+- name: CYPRESS_CACHE_FOLDER
+  value: $(System.DefaultWorkingDirectory)/node_modules/.azure_pipeline_cypress_cache
+- name: BABEL_LOADER_CACHE_DIR
+  value: $(Build.SourcesDirectory)/.babel-loader-cache
+- name: BUILD_DATE
+  value: $[format('{0:yyyyMMdd}', pipeline.startTime)]
+stages:
+- stage: __default
+  jobs:
+  - job: CypressSetup
+    timeoutInMinutes: 30
+    pool:
+      name: $(agent_pool_name_setup)
+    steps:
+    - task: PowerShell@2
+      displayName: Memory check
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          ## Checking memory usage and waiting for stable value
+
+
+          $requiredFreeMemory = if ($env:required_free_memory -eq $null) { 30 } else { $env:required_free_memory }
+
+          Write-Output "Checking for required free memory of $requiredFreeMemory%"
+
+
+          $Time = [System.Diagnostics.Stopwatch]::StartNew()
+
+
+          while ($true) {
+              $os = Get-Ciminstance Win32_OperatingSystem
+              $pctFree = [math]::Round(($os.FreePhysicalMemory / $os.TotalVisibleMemorySize) * 100, 2)
+
+              ## Check if we have enough of free memory. If so, exit this while
+
+              if ($pctFree -gt $requiredFreeMemory) {
+                  Write-Output "Free memory of $pctFree% is enough"
+                  break
+              }
+
+              ## Checking if 10 min passed. If so, timeout the check and exit this while.
+
+              $elapsedTime = $Time.Elapsed
+              if ($elapsedTime.minutes -gt 9) {
+                  Write-Output "Free memory check timeout after 10 min"
+                  break;
+              }
+
+              ## Continue check because there is not enough free memory on this VM.
+
+              Write-Output "Free memory: $pctFree% is Less then required: $requiredFreeMemory%. Waiting..."
+              Start-Sleep -Seconds 1
+          }
+
+
+          ## Checking cpu usage and waiting for stable value
+
+
+          $requiredCpu = if ($env:required_free_cpu -eq $null) { 50 } else { $env:required_free_cpu }
+
+          Write-Output "Checking for required free cpu of: $requiredCpu%"
+
+
+          $Time = [System.Diagnostics.Stopwatch]::StartNew()
+
+
+          $hasCounter = $true
+
+
+          try {
+              Get-Counter '\Processor(_Total)\% Processor Time'
+          }
+
+          catch {
+              $hasCounter = $false
+          }
+
+
+          while ($hasCounter) {
+              $cpuCounter = Get-Counter '\Processor(_Total)\% Processor Time'
+              $freeCpu = 100 - $cpuCounter.CounterSamples.CookedValue
+
+              ## Check if we have enough of free memory. If so, exit this while
+
+              if ($freeCpu -gt $requiredCpu) {
+                  Write-Output "Free cpu $freeCpu% is enough"
+                  break
+              }
+
+              ## Checking if 10 min passed. If so, timeout the check and exit this while.
+
+              $elapsedTime = $Time.Elapsed
+              if ($elapsedTime.minutes -gt 9) {
+                  Write-Output "Free cpu check timeout after 10 min"
+                  break;
+              }
+
+              ## Continue check because there is not enough free memory on this VM.
+
+              Write-Output "Free cpu: $freeCpu% is Less then required: $requiredCpu%. Waiting..."
+              Start-Sleep -Seconds 1
+          }
+    - task: PowerShell@2
+      displayName: Clean sources
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          Remove-Item ".\*" -Force -Recurse -ErrorAction SilentlyContinue
+    - task: 6d15af64-176c-496d-b583-fd2ae21d4df4@1
+      inputs:
+        repository: self
+        fetchDepth: 200
+        persistCredentials: true
+    - task: PowerShell@2
+      displayName: Fetch master branch
+      inputs:
+        targetType: inline
+        script: >
+          git fetch --depth=200 --prune --progress --no-recurse-submodules origin master
+    - task: PowerShell@1
+      displayName: Get Node.js version from package.json
+      inputs:
+        scriptType: inlineScript
+        inlineScript: >
+          $nodeVersion = (cat .\package.json | Select-String -Pattern '"node": "~?((\d+\.?)+)')[0].Matches.Groups[1].Value
+
+          write-host "##vso[task.setvariable variable=nodeVersion]$nodeVersion"
+    - task: NodeTool@0
+      inputs:
+        versionSpec: $(nodeVersion)
+      displayName: Install Node.js
+    - task: PowerShell@2
+      displayName: Setup Cache Directory
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          mkdir -p node_modules/.azure_pipeline_cypress_cache -ErrorAction SilentlyContinue
+
+          mkdir -p cache -ErrorAction SilentlyContinue
+    - task: RestoreCache@1
+      inputs:
+        keyfile: yarn.lock, .azuredevops/pipelines/templates/install-dependencies.yml
+        targetfolder: cache
+        feedList: $(CacheFeedId)
+        alias: npm
+    - task: ExtractFiles@1
+      inputs:
+        archiveFilePatterns: cache/nodemodules.7z
+        destinationFolder: node_modules
+      condition: eq(variables['CacheRestored-npm'], 'true')
+    - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@3
+      inputs:
+        arguments: --frozen-lockfile
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@3
+      displayName: yarn cypress:verify
+      inputs:
+        arguments: cypress:verify
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: ArchiveFiles@2
+      inputs:
+        includeRootFolder: false
+        rootFolderOrFile: node_modules
+        archiveType: 7z
+        archiveFile: cache/nodemodules.7z
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: SaveCache@1
+      inputs:
+        keyfile: yarn.lock, .azuredevops/pipelines/templates/install-dependencies.yml
+        targetfolder: cache
+        feedList: $(CacheFeedId)
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: PowerShell@2
+      displayName: create cache key
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          mkdir .babel-loader-cache -f
+
+          echo $env:BUILD_DATE >.babel-loader-cache/cachekey
+    - task: RestoreCache@1
+      inputs:
+        keyfile: yarn.lock, .babel-loader-cache/cachekey
+        targetfolder: .babel-loader-cache
+        feedList: $(CacheFeedId)
+        alias: babel
+    - task: NuGetCommand@2
+      displayName: installing dotless
+      inputs:
+        command: custom
+        arguments: install dotless -Version 1.4.4 -ExcludeVersion
+    - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@3
+      displayName: yarn build:css
+      inputs:
+        arguments: build:css
+    - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@3
+      displayName: yarn build:cypress
+      inputs:
+        arguments: build:cypress
+    - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@3
+      displayName: build localization key file map
+      inputs:
+        arguments: translation build-file-map
+    - task: PowerShell@2
+      displayName: gzip output files
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          gzip --fast --suffix=.gz dist/frontend/**/*.js dist/frontend/*.css
+    - task: SaveCache@1
+      inputs:
+        keyfile: yarn.lock, .babel-loader-cache/cachekey
+        targetfolder: .babel-loader-cache
+        feedList: $(CacheFeedId)
+      condition: ne(variables['CacheRestored-babel'], 'true')
+    - task: ecdc45f6-832d-4ad9-b52b-ee49e94659be@1
+      inputs:
+        path: dist/frontend
+        artifactName: frontend
+    - task: PowerShell@2
+      displayName: Set cypress agent count
+      name: setAgentCount
+      inputs:
+        targetType: inline
+        script: "# Get rid of files modified during the build process\ngit reset --hard HEAD\ngit clean -df\n\n$branch = $env:BUILD_SOURCEBRANCH;\n\nif ($env:BUILD_REASON -eq \"PullRequest\") {\n    $branch = $env:SYSTEM_PULLREQUEST_SOURCEBRANCH;\n}\n\n$branch = $branch -replace \"refs/heads/\", \"\"\n$branch = $branch -replace \"/\", \"-\"\n\nif($branch -ne \"master\" -and $branch -notlike \"release*\") {\n\n    $target_branch = \"origin/master\"\n    \n    # SPEC_FILES should only be provided by using 'Run pipeline'\n    # on your branch. *Never* edit the build settings.\n    # See https://wiki/x/BD56Bg\n    $spec_files = $env:SPEC_FILES;\n\n    if ($env:BUILD_REASON -eq \"PullRequest\") {\n        $target_branch = $env:SYSTEM_PULLREQUEST_TARGETBRANCH;\n    }\n\n    if($spec_files){\n        yarn cypress:set-agent-count --specs $spec_files\n    }\n    else {\n        yarn cypress:set-agent-count --changed-since $target_branch\n    }\n}\nelse {\n    yarn cypress:set-agent-count\n}\n"
+    - task: PowerShell@2
+      displayName: 'Send notification to #stgo-build-failures on failed cypress master pipeline'
+      condition: and(failed(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release')))
+      inputs:
+        targetType: inline
+        script: "\n$user = \"$env:BUILD_DEFINITIONNAME\"\n$channel = \"#stgo-build-failures\"\n$message = \":rotating_light: @channel Cypress integration build on master is broken, please investigate \n https://dev.azure.com/saxobank/Platforms/_build/results?buildId=$env:BUILD_BUILDID\"\n$icon = \"https://avatars.slack-edge.com/2019-01-17/528389819366_e7a0672f0480b3e98d21_512.png\"\n\n$token = \"$(slack_app_key)\"\n\n$url=\"https://slack.com/api/chat.postMessage\"\n$body = @{token=$token;channel=$channel;username=$user;text=$message;icon_url=$icon;pretty=1;parse=\"full\";link_names=\"true\"}\n\nWrite-Host \"Sending slack notification to channel: $channel\"\nWrite-Host \"Message: $message\"\nWrite-Host \"From user: $user\"\nWrite-Host \"Custom icon: $icon\"\n\nInvoke-WebRequest -Uri $url -Method POST -Body $body | out-null\n"
+  - job: CypressTest
+    timeoutInMinutes: 120
+    pool:
+      name: $(agent_pool_name_test)
+    strategy:
+      parallel: $[ dependencies.CypressSetup.outputs['setAgentCount.agentCount'] ]
+    dependsOn:
+    - CypressSetup
+    steps:
+    - task: PowerShell@2
+      displayName: Memory check
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          ## Checking memory usage and waiting for stable value
+
+
+          $requiredFreeMemory = if ($env:required_free_memory -eq $null) { 30 } else { $env:required_free_memory }
+
+          Write-Output "Checking for required free memory of $requiredFreeMemory%"
+
+
+          $Time = [System.Diagnostics.Stopwatch]::StartNew()
+
+
+          while ($true) {
+              $os = Get-Ciminstance Win32_OperatingSystem
+              $pctFree = [math]::Round(($os.FreePhysicalMemory / $os.TotalVisibleMemorySize) * 100, 2)
+
+              ## Check if we have enough of free memory. If so, exit this while
+
+              if ($pctFree -gt $requiredFreeMemory) {
+                  Write-Output "Free memory of $pctFree% is enough"
+                  break
+              }
+
+              ## Checking if 10 min passed. If so, timeout the check and exit this while.
+
+              $elapsedTime = $Time.Elapsed
+              if ($elapsedTime.minutes -gt 9) {
+                  Write-Output "Free memory check timeout after 10 min"
+                  break;
+              }
+
+              ## Continue check because there is not enough free memory on this VM.
+
+              Write-Output "Free memory: $pctFree% is Less then required: $requiredFreeMemory%. Waiting..."
+              Start-Sleep -Seconds 1
+          }
+
+
+          ## Checking cpu usage and waiting for stable value
+
+
+          $requiredCpu = if ($env:required_free_cpu -eq $null) { 50 } else { $env:required_free_cpu }
+
+          Write-Output "Checking for required free cpu of: $requiredCpu%"
+
+
+          $Time = [System.Diagnostics.Stopwatch]::StartNew()
+
+
+          $hasCounter = $true
+
+
+          try {
+              Get-Counter '\Processor(_Total)\% Processor Time'
+          }
+
+          catch {
+              $hasCounter = $false
+          }
+
+
+          while ($hasCounter) {
+              $cpuCounter = Get-Counter '\Processor(_Total)\% Processor Time'
+              $freeCpu = 100 - $cpuCounter.CounterSamples.CookedValue
+
+              ## Check if we have enough of free memory. If so, exit this while
+
+              if ($freeCpu -gt $requiredCpu) {
+                  Write-Output "Free cpu $freeCpu% is enough"
+                  break
+              }
+
+              ## Checking if 10 min passed. If so, timeout the check and exit this while.
+
+              $elapsedTime = $Time.Elapsed
+              if ($elapsedTime.minutes -gt 9) {
+                  Write-Output "Free cpu check timeout after 10 min"
+                  break;
+              }
+
+              ## Continue check because there is not enough free memory on this VM.
+
+              Write-Output "Free cpu: $freeCpu% is Less then required: $requiredCpu%. Waiting..."
+              Start-Sleep -Seconds 1
+          }
+    - task: PowerShell@2
+      displayName: Clean sources
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          Remove-Item ".\*" -Force -Recurse -ErrorAction SilentlyContinue
+    - task: PowerShell@2
+      displayName: Clean cypress data
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          $cypressUserData = "$env:APPDATA\Cypress"
+
+          Write-Output "Cleaning cypress data from: $cypressUserData"
+
+          Remove-Item -Recurse -Force $cypressUserData -ErrorAction SilentlyContinue
+    - task: 6d15af64-176c-496d-b583-fd2ae21d4df4@1
+      inputs:
+        repository: self
+        clean: true
+        fetchDepth: 200
+        persistCredentials: true
+    - task: PowerShell@2
+      displayName: Fetch master branch
+      inputs:
+        targetType: inline
+        script: >
+          git fetch --depth=200 --prune --progress --no-recurse-submodules origin master
+    - task: PowerShell@1
+      displayName: Get Node.js version from package.json
+      inputs:
+        scriptType: inlineScript
+        inlineScript: >
+          $nodeVersion = (cat .\package.json | Select-String -Pattern '"node": "~?((\d+\.?)+)')[0].Matches.Groups[1].Value
+
+          write-host "##vso[task.setvariable variable=nodeVersion]$nodeVersion"
+    - task: NodeTool@0
+      inputs:
+        versionSpec: $(nodeVersion)
+      displayName: Install Node.js
+    - task: PowerShell@2
+      displayName: Setup Cache Directory
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          mkdir -p node_modules/.azure_pipeline_cypress_cache -ErrorAction SilentlyContinue
+
+          mkdir -p cache -ErrorAction SilentlyContinue
+    - task: RestoreCache@1
+      inputs:
+        keyfile: yarn.lock, .azuredevops/pipelines/templates/install-dependencies.yml
+        targetfolder: cache
+        feedList: $(CacheFeedId)
+        alias: npm
+    - task: ExtractFiles@1
+      inputs:
+        archiveFilePatterns: cache/nodemodules.7z
+        destinationFolder: node_modules
+      condition: eq(variables['CacheRestored-npm'], 'true')
+    - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@3
+      inputs:
+        arguments: --frozen-lockfile
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: geeklearningio.gl-vsts-tasks-yarn.yarn-task.Yarn@3
+      displayName: yarn cypress:verify
+      inputs:
+        arguments: cypress:verify
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: ArchiveFiles@2
+      inputs:
+        includeRootFolder: false
+        rootFolderOrFile: node_modules
+        archiveType: 7z
+        archiveFile: cache/nodemodules.7z
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: SaveCache@1
+      inputs:
+        keyfile: yarn.lock, .azuredevops/pipelines/templates/install-dependencies.yml
+        targetfolder: cache
+        feedList: $(CacheFeedId)
+      condition: ne(variables['CacheRestored-npm'], 'true')
+    - task: DownloadPipelineArtifact@2
+      inputs:
+        artifactName: frontend
+        targetPath: dist/frontend
+    - task: PowerShell@2
+      displayName: Set the screen size
+      inputs:
+        targetType: inline
+        script: "Function Set-ScreenResolution { \n     <# \n        .Synopsis \n            Sets the Screen Resolution of the primary monitor \n        .Description \n            Uses Pinvoke and ChangeDisplaySettings Win32API to make the change \n        .Example \n            Set-ScreenResolution -Width 1024 -Height 768         \n        #> \n    param ( \n    [Parameter(Mandatory=$true, \n               Position = 0)] \n    [int] \n    $Width, \n     \n    [Parameter(Mandatory=$true, \n               Position = 1)] \n    [int] \n    $Height \n    ) \n     \n    $pinvokeCode = @\" \n     \n    using System; \n    using System.Runtime.InteropServices; \n     \n    namespace Resolution \n    { \n     \n        [StructLayout(LayoutKind.Sequential)] \n        public struct DEVMODE1 \n        { \n            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] \n            public string dmDeviceName; \n            public short dmSpecVersion; \n            public short dmDriverVersion; \n            public short dmSize; \n            public short dmDriverExtra; \n            public int dmFields; \n     \n            public short dmOrientation; \n            public short dmPaperSize; \n            public short dmPaperLength; \n            public short dmPaperWidth; \n     \n            public short dmScale; \n            public short dmCopies; \n            public short dmDefaultSource; \n            public short dmPrintQuality; \n            public short dmColor; \n            public short dmDuplex; \n            public short dmYResolution; \n            public short dmTTOption; \n            public short dmCollate; \n            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)] \n            public string dmFormName; \n            public short dmLogPixels; \n            public short dmBitsPerPel; \n            public int dmPelsWidth; \n            public int dmPelsHeight; \n     \n            public int dmDisplayFlags; \n            public int dmDisplayFrequency; \n     \n            public int dmICMMethod; \n            public int dmICMIntent; \n            public int dmMediaType; \n            public int dmDitherType; \n            public int dmReserved1; \n            public int dmReserved2; \n     \n            public int dmPanningWidth; \n            public int dmPanningHeight; \n        }; \n     \n     \n     \n        class User_32 \n        { \n            [DllImport(\"user32.dll\")] \n            public static extern int EnumDisplaySettings(string deviceName, int modeNum, ref DEVMODE1 devMode); \n            [DllImport(\"user32.dll\")] \n            public static extern int ChangeDisplaySettings(ref DEVMODE1 devMode, int flags); \n     \n            public const int ENUM_CURRENT_SETTINGS = -1; \n            public const int CDS_UPDATEREGISTRY = 0x01; \n            public const int CDS_TEST = 0x02; \n            public const int DISP_CHANGE_SUCCESSFUL = 0; \n            public const int DISP_CHANGE_RESTART = 1; \n            public const int DISP_CHANGE_FAILED = -1; \n        } \n     \n     \n     \n        public class PrmaryScreenResolution \n        { \n            static public string ChangeResolution(int width, int height) \n            { \n     \n                DEVMODE1 dm = GetDevMode1(); \n     \n                if (0 != User_32.EnumDisplaySettings(null, User_32.ENUM_CURRENT_SETTINGS, ref dm)) \n                { \n     \n                    dm.dmPelsWidth = width; \n                    dm.dmPelsHeight = height; \n     \n                    int iRet = User_32.ChangeDisplaySettings(ref dm, User_32.CDS_TEST); \n     \n                    if (iRet == User_32.DISP_CHANGE_FAILED) \n                    { \n                        return \"Unable To Process Your Request. Sorry For This Inconvenience.\"; \n                    } \n                    else \n                    { \n                        iRet = User_32.ChangeDisplaySettings(ref dm, User_32.CDS_UPDATEREGISTRY); \n                        switch (iRet) \n                        { \n                            case User_32.DISP_CHANGE_SUCCESSFUL: \n                                { \n                                    return \"Success\"; \n                                } \n                            case User_32.DISP_CHANGE_RESTART: \n                                { \n                                    return \"You Need To Reboot For The Change To Happen.\\n If You Feel Any Problem After Rebooting Your Machine\\nThen Try To Change Resolution In Safe Mode.\"; \n                                } \n                            default: \n                                { \n                                    return \"Failed To Change The Resolution\"; \n                                } \n                        } \n     \n                    } \n     \n     \n                } \n                else \n                { \n                    return \"Failed To Change The Resolution.\"; \n                } \n            } \n     \n            private static DEVMODE1 GetDevMode1() \n            { \n                DEVMODE1 dm = new DEVMODE1(); \n                dm.dmDeviceName = new String(new char[32]); \n                dm.dmFormName = new String(new char[32]); \n                dm.dmSize = (short)Marshal.SizeOf(dm); \n                return dm; \n            } \n        } \n    }\n\"@\n     \n    Add-Type $pinvokeCode -ErrorAction SilentlyContinue \n    [Resolution.PrmaryScreenResolution]::ChangeResolution($width,$height) \n}\n# Set the resolution to 1600x1200 which is the maximum on this agent\n# Higher values fail. But still better than the default 1024x800\nWrite-Output \"Trying to set resolution 1600x1200\"\nSet-ScreenResolution -Width 1600 -Height 1200\n"
+    - task: PowerShell@2
+      displayName: Make the screenshots directory
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        script: >
+          # make the screenshots directory so the copy to staging task succeeds
+
+          mkdir -p cypress/screenshots -ErrorAction SilentlyContinue
+    - task: PowerShell@2
+      displayName: run cypress
+      inputs:
+        workingDirectory: .
+        targetType: inline
+        ignoreLASTEXITCODE: false
+        script: >
+          Write-Output "SourceBranch:$env:BUILD_SOURCEBRANCH"
+
+          Write-Output "BuildReason:$env:BUILD_REASON"
+
+          Write-Output "PR SourceBranch:$env:SYSTEM_PULLREQUEST_SOURCEBRANCH"
+
+
+          $branch = $env:BUILD_SOURCEBRANCH;
+
+
+          if ($env:BUILD_REASON -eq "PullRequest") {
+            $branch = $env:SYSTEM_PULLREQUEST_SOURCEBRANCH;
+          }
+
+
+          $branch = $branch -replace "refs/heads/", ""
+
+          $branch = $branch -replace "/", "-"
+
+
+          $env:CYPRESS_BRANCH = $branch
+
+
+          if ($branch -eq "master") {
+            $env:CYPRESS_BRANCH = "master-$env:BUILD_SOURCEVERSION"
+          }
+
+
+          if ($env:CYPRESS_RETRIES -notmatch "^\d+$") {
+            if ($branch -eq "master" -or $branch -like "release*") {
+              $env:CYPRESS_RETRIES = 10
+            } else {
+              $env:CYPRESS_RETRIES = 3
+            }
+          }
+
+
+          Write-Output "Running tests for: $env:CYPRESS_BRANCH with $env:CYPRESS_RETRIES Retries"
+
+
+          # To try out recording to cypress..
+
+          # node node_modules/cypress/bin/cypress run --record --key $(cypress_key)
+
+
+          if($branch -ne "master" -and $branch -notlike "release*") {
+
+            $target_branch = "origin/master"
+
+            # SPEC_FILES should only be provided by using 'Run pipeline'
+            # on your branch. *Never* edit the build settings.
+            # See https://wiki/x/BD56Bg
+            $spec_files = $env:SPEC_FILES;
+
+            if ($env:BUILD_REASON -eq "PullRequest") {
+              $target_branch = $env:SYSTEM_PULLREQUEST_TARGETBRANCH;
+            }
+
+            if($spec_files){
+                Write-Output "Running Cypress for git diff $branch::$target_branch in passed in specs mode"
+                yarn cypress:run --run $(System.JobPositionInPhase) --total-runs $(System.TotalJobsInPhase) --specs $spec_files
+            }
+            else {
+                Write-Output "Running Cypress for git diff $branch::$target_branch"
+                yarn cypress:run --run $(System.JobPositionInPhase) --total-runs $(System.TotalJobsInPhase) --changed-since $target_branch
+            }
+          }
+
+          else {
+            Write-Output "Running Cypress in full suite mode"
+            yarn cypress:run --run $(System.JobPositionInPhase) --total-runs $(System.TotalJobsInPhase)
+          }
+    - task: CopyFiles@2
+      displayName: Copy to staging directory
+      inputs:
+        sourceFolder: cypress/screenshots
+        contents: '**'
+        targetFolder: $(Build.ArtifactStagingDirectory)/cypress/screenshots
+      condition: succeededOrFailed()
+    - task: PublishBuildArtifacts@1
+      inputs:
+        pathtoPublish: $(Build.ArtifactStagingDirectory)
+        artifactName: drop
+      condition: succeededOrFailed()
+    - task: PublishTestResults@2
+      inputs:
+        testResultsFormat: JUnit
+        mergeTestResults: true
+        testResultsFiles: '**\test-results-*.xml'
+        searchFolder: $(System.DefaultWorkingDirectory)
+      condition: succeededOrFailed()
+    - task: PowerShell@2
+      displayName: 'Send notification to #stgo-build-failures on failed cypress master pipeline'
+      condition: and(failed(), or(eq(variables['Build.SourceBranch'], 'refs/heads/master'), startsWith(variables['Build.SourceBranch'], 'refs/heads/release')))
+      inputs:
+        targetType: inline
+        script: "\n$user = \"$env:BUILD_DEFINITIONNAME\"\n$channel = \"#stgo-build-failures\"\n$message = \":rotating_light: @channel Cypress integration build on master is broken, please investigate \n https://dev.azure.com/saxobank/Platforms/_build/results?buildId=$env:BUILD_BUILDID\"\n$icon = \"https://avatars.slack-edge.com/2019-01-17/528389819366_e7a0672f0480b3e98d21_512.png\"\n\n$token = \"$(slack_app_key)\"\n\n$url=\"https://slack.com/api/chat.postMessage\"\n$body = @{token=$token;channel=$channel;username=$user;text=$message;icon_url=$icon;pretty=1;parse=\"full\";link_names=\"true\"}\n\nWrite-Host \"Sending slack notification to channel: $channel\"\nWrite-Host \"Message: $message\"\nWrite-Host \"From user: $user\"\nWrite-Host \"Custom icon: $icon\"\n\nInvoke-WebRequest -Uri $url -Method POST -Body $body | out-null\n"
+

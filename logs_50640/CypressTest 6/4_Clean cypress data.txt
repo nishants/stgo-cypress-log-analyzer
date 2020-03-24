@@ -1,0 +1,13 @@
+2020-03-24T03:40:42.9440698Z ##[section]Starting: Clean cypress data
+2020-03-24T03:40:42.9607242Z ==============================================================================
+2020-03-24T03:40:42.9608049Z Task         : PowerShell
+2020-03-24T03:40:42.9608628Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:40:42.9609193Z Version      : 2.165.0
+2020-03-24T03:40:42.9609691Z Author       : Microsoft Corporation
+2020-03-24T03:40:42.9610353Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:40:42.9611109Z ==============================================================================
+2020-03-24T03:40:43.8903964Z Generating script.
+2020-03-24T03:40:43.9283348Z ========================== Starting Command Output ===========================
+2020-03-24T03:40:43.9585080Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\a9942a7a-2270-4314-a7fc-b27222663e1f.ps1'"
+2020-03-24T03:40:44.1863536Z Cleaning cypress data from: C:\Users\xmiku\AppData\Roaming\Cypress
+2020-03-24T03:40:44.3376442Z ##[section]Finishing: Clean cypress data

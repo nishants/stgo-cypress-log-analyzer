@@ -1,0 +1,12 @@
+2020-03-24T03:40:15.1031744Z ##[section]Starting: Clean sources
+2020-03-24T03:40:15.1123985Z ==============================================================================
+2020-03-24T03:40:15.1124320Z Task         : PowerShell
+2020-03-24T03:40:15.1125659Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:40:15.1125965Z Version      : 2.165.0
+2020-03-24T03:40:15.1126198Z Author       : Microsoft Corporation
+2020-03-24T03:40:15.1126548Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:40:15.1126961Z ==============================================================================
+2020-03-24T03:40:16.2563992Z Generating script.
+2020-03-24T03:40:16.2985155Z ========================== Starting Command Output ===========================
+2020-03-24T03:40:16.3285382Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\43590d06-50b7-4e44-b94d-8ca4c5715698.ps1'"
+2020-03-24T03:40:16.8913451Z ##[section]Finishing: Clean sources

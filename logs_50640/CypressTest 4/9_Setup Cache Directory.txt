@@ -1,0 +1,30 @@
+2020-03-24T03:41:02.6265811Z ##[section]Starting: Setup Cache Directory
+2020-03-24T03:41:02.6357609Z ==============================================================================
+2020-03-24T03:41:02.6357980Z Task         : PowerShell
+2020-03-24T03:41:02.6358248Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:41:02.6358513Z Version      : 2.165.0
+2020-03-24T03:41:02.6358724Z Author       : Microsoft Corporation
+2020-03-24T03:41:02.6359038Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:41:02.6359414Z ==============================================================================
+2020-03-24T03:41:03.7177345Z Generating script.
+2020-03-24T03:41:03.7600691Z ========================== Starting Command Output ===========================
+2020-03-24T03:41:03.7875858Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\c4c65611-03a4-4b73-99eb-820b67c57510.ps1'"
+2020-03-24T03:41:04.2372297Z 
+2020-03-24T03:41:04.2374271Z 
+2020-03-24T03:41:04.2382197Z     Directory: D:\work\1\s\node_modules
+2020-03-24T03:41:04.2383531Z 
+2020-03-24T03:41:04.2385139Z 
+2020-03-24T03:41:04.2388674Z Mode                LastWriteTime         Length Name                                                                  
+2020-03-24T03:41:04.2391646Z ----                -------------         ------ ----                                                                  
+2020-03-24T03:41:04.2394940Z d-----        3/24/2020   3:41 AM                .azure_pipeline_cypress_cache                                         
+2020-03-24T03:41:04.2447600Z 
+2020-03-24T03:41:04.2448232Z 
+2020-03-24T03:41:04.2449998Z     Directory: D:\work\1\s
+2020-03-24T03:41:04.2450293Z 
+2020-03-24T03:41:04.2450680Z 
+2020-03-24T03:41:04.2455000Z Mode                LastWriteTime         Length Name                                                                  
+2020-03-24T03:41:04.2457330Z ----                -------------         ------ ----                                                                  
+2020-03-24T03:41:04.2459925Z d-----        3/24/2020   3:41 AM                cache                                                                 
+2020-03-24T03:41:04.2937034Z 
+2020-03-24T03:41:04.2937559Z 
+2020-03-24T03:41:04.3582117Z ##[section]Finishing: Setup Cache Directory

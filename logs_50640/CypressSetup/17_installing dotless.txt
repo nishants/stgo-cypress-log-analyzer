@@ -1,0 +1,40 @@
+2020-03-24T03:34:03.5028326Z ##[section]Starting: installing dotless
+2020-03-24T03:34:03.5118898Z ==============================================================================
+2020-03-24T03:34:03.5119251Z Task         : NuGet
+2020-03-24T03:34:03.5121318Z Description  : Restore, pack, or push NuGet packages, or run a NuGet command. Supports NuGet.org and authenticated feeds like Azure Artifacts and MyGet. Uses NuGet.exe and works with .NET Framework apps. For .NET Core and .NET Standard apps, use the .NET Core task.
+2020-03-24T03:34:03.5122041Z Version      : 2.166.0
+2020-03-24T03:34:03.5122318Z Author       : Microsoft Corporation
+2020-03-24T03:34:03.5122664Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/package/nuget
+2020-03-24T03:34:03.5123085Z ==============================================================================
+2020-03-24T03:34:04.0007870Z Caching tool: NuGet 4.1.0 x64
+2020-03-24T03:34:04.0109649Z Found tool in cache: NuGet 4.1.0 x64
+2020-03-24T03:34:04.0166797Z Resolved from tool cache: 4.1.0
+2020-03-24T03:34:04.0167194Z Using version: 4.1.0
+2020-03-24T03:34:04.0169130Z Found tool in cache: NuGet 4.1.0 x64
+2020-03-24T03:34:04.0859479Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:34:04.1693363Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:34:04.2986099Z [command]C:\windows\system32\chcp.com 65001
+2020-03-24T03:34:04.3074996Z Active code page: 65001
+2020-03-24T03:34:04.3269617Z Detected NuGet version 4.1.0.2450 / 4.1.0
+2020-03-24T03:34:04.3282335Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:34:04.3329343Z [command]d:\work\_tool\NuGet\4.1.0\x64\nuget.exe install dotless -Version 1.4.4 -ExcludeVersion -NonInteractive
+2020-03-24T03:34:08.7150298Z Feeds used:
+2020-03-24T03:34:08.7150741Z   https://api.nuget.org/v3/index.json
+2020-03-24T03:34:08.7151004Z 
+2020-03-24T03:34:08.7151209Z 
+2020-03-24T03:34:08.7151344Z 
+2020-03-24T03:34:08.7151820Z Attempting to gather dependency information for package 'dotless.1.4.4' with respect to project 'd:\work\1\s', targeting 'Any,Version=v0.0'
+2020-03-24T03:34:08.7152352Z Gathering dependency information took 945.25 ms
+2020-03-24T03:34:08.7152737Z Attempting to resolve dependencies for package 'dotless.1.4.4' with DependencyBehavior 'Lowest'
+2020-03-24T03:34:08.7153090Z Resolving dependency information took 0 ms
+2020-03-24T03:34:08.7153369Z Resolving actions to install package 'dotless.1.4.4'
+2020-03-24T03:34:08.7153685Z Resolved actions to install package 'dotless.1.4.4'
+2020-03-24T03:34:08.7153981Z Retrieving package 'dotless 1.4.4' from 'nuget.org'.
+2020-03-24T03:34:08.7154348Z   GET https://api.nuget.org/v3-flatcontainer/dotless/1.4.4/dotless.1.4.4.nupkg
+2020-03-24T03:34:08.7154865Z   OK https://api.nuget.org/v3-flatcontainer/dotless/1.4.4/dotless.1.4.4.nupkg 401ms
+2020-03-24T03:34:08.7155157Z Installing dotless 1.4.4.
+2020-03-24T03:34:08.7155440Z Adding package 'dotless.1.4.4' to folder 'd:\work\1\s'
+2020-03-24T03:34:08.7156072Z Added package 'dotless.1.4.4' to folder 'd:\work\1\s'
+2020-03-24T03:34:08.7156482Z Successfully installed 'dotless 1.4.4' to d:\work\1\s
+2020-03-24T03:34:08.7156810Z Executing nuget actions took 691.68 ms
+2020-03-24T03:34:08.7235265Z ##[section]Finishing: installing dotless

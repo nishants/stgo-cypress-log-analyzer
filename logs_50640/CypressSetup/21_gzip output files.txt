@@ -1,0 +1,12 @@
+2020-03-24T03:39:29.5021856Z ##[section]Starting: gzip output files
+2020-03-24T03:39:29.5112497Z ==============================================================================
+2020-03-24T03:39:29.5112792Z Task         : PowerShell
+2020-03-24T03:39:29.5113049Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:39:29.5113337Z Version      : 2.165.0
+2020-03-24T03:39:29.5113544Z Author       : Microsoft Corporation
+2020-03-24T03:39:29.5113852Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:39:29.5114368Z ==============================================================================
+2020-03-24T03:39:30.4395067Z Generating script.
+2020-03-24T03:39:30.4765849Z ========================== Starting Command Output ===========================
+2020-03-24T03:39:30.4995931Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\7a13dc45-5b76-4d7a-a46d-b4ce23d595bd.ps1'"
+2020-03-24T03:39:34.3618961Z ##[section]Finishing: gzip output files

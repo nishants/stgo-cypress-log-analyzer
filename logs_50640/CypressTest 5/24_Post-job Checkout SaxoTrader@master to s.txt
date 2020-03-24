@@ -1,0 +1,16 @@
+2020-03-24T04:07:05.1725618Z ##[section]Starting: Checkout SaxoTrader@master to s
+2020-03-24T04:07:05.1814494Z ==============================================================================
+2020-03-24T04:07:05.1814843Z Task         : Get sources
+2020-03-24T04:07:05.1815195Z Description  : Get sources from a repository. Supports Git, TfsVC, and SVN repositories.
+2020-03-24T04:07:05.1815506Z Version      : 1.0.0
+2020-03-24T04:07:05.1815722Z Author       : Microsoft
+2020-03-24T04:07:05.1816074Z Help         : [More Information](https://go.microsoft.com/fwlink/?LinkId=798199)
+2020-03-24T04:07:05.1816472Z ==============================================================================
+2020-03-24T04:07:05.5349867Z Cleaning any cached credential from repository: SaxoTrader (Git)
+2020-03-24T04:07:05.5472456Z Prepending Path environment variable with directory containing 'git.exe'.
+2020-03-24T04:07:05.5520072Z ##[command]git version
+2020-03-24T04:07:05.6220345Z git version 2.25.0.windows.1
+2020-03-24T04:07:05.6332199Z ##[command]git lfs version
+2020-03-24T04:07:05.6938705Z git-lfs/2.10.0 (GitHub; windows amd64; go 1.12.7; git a526ba6b)
+2020-03-24T04:07:05.6977558Z ##[command]git config --unset-all http.https://saxobank@dev.azure.com/saxobank/Platforms/_git/SaxoTrader.extraheader
+2020-03-24T04:07:05.7435319Z ##[section]Finishing: Checkout SaxoTrader@master to s

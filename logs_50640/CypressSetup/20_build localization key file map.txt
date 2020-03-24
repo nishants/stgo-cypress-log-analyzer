@@ -1,0 +1,19 @@
+2020-03-24T03:39:00.2162396Z ##[section]Starting: build localization key file map
+2020-03-24T03:39:00.2260776Z ==============================================================================
+2020-03-24T03:39:00.2261200Z Task         : Yarn task
+2020-03-24T03:39:00.2261428Z Description  : Executes Yarn
+2020-03-24T03:39:00.2261650Z Version      : 3.0.1999
+2020-03-24T03:39:00.2261897Z Author       : Geek Learning
+2020-03-24T03:39:00.2262581Z Help         : [More Information](https://github.com/geeklearningio/gl-vsts-tasks-yarn/wiki/Yarn) (Version 3.0.1999).
+
+Dear Angular and Ember CLI users, please check our [known issues](https://github.com/geeklearningio/gl-vsts-tasks-yarn/wiki/Known-Issues)
+2020-03-24T03:39:00.2263392Z ==============================================================================
+2020-03-24T03:39:00.7133983Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:39:00.8380219Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:39:00.9477942Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:39:00.9489582Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:39:00.9626885Z [command]C:\windows\system32\cmd.exe /D /S /C ""C:\Program Files (x86)\Yarn\bin\yarn.cmd" translation build-file-map"
+2020-03-24T03:39:01.4044533Z yarn run v1.22.0
+2020-03-24T03:39:01.4580974Z $ node ./tools/translation build-file-map
+2020-03-24T03:39:29.4626920Z Done in 28.06s.
+2020-03-24T03:39:29.4995225Z ##[section]Finishing: build localization key file map

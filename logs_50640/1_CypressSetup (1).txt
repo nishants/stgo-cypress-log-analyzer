@@ -1,0 +1,31 @@
+2020-03-24T03:25:57.3989737Z ##[section]Starting: Prepare job CypressSetup
+2020-03-24T03:25:57.4439731Z Variables:
+2020-03-24T03:25:57.4439731Z   BUILD_DATE:
+2020-03-24T03:25:57.4439731Z     Parsing expression: <format('{0:yyyyMMdd}', pipeline.startTime)>
+2020-03-24T03:25:57.4439731Z     Evaluating: format('{0:yyyyMMdd}', pipeline['startTime'])
+2020-03-24T03:25:57.4439731Z     Result: '20200324'
+2020-03-24T03:25:57.4439731Z ContinueOnError: False
+2020-03-24T03:25:57.4439731Z TimeoutInMinutes: 30
+2020-03-24T03:25:57.4439731Z CancelTimeoutInMinutes: 5
+2020-03-24T03:25:57.4439731Z Expand:
+2020-03-24T03:25:57.4439731Z   MaxConcurrency: 0
+2020-03-24T03:25:57.4539723Z   ########## System Pipeline Decorator(s) ##########
+
+2020-03-24T03:25:57.4539723Z   Begin evaluating template 'system-pre-steps.yml'
+Evaluating: eq('true', variables['system.debugContext'])
+Expanded: eq('true', Null)
+Result: False
+Evaluating: resources['repositories']['self']
+Expanded: Object
+Result: True
+Evaluating: not(containsValue(job['steps']['*']['task']['id'], '6d15af64-176c-496d-b583-fd2ae21d4df4'))
+Expanded: not(containsValue(Object, '6d15af64-176c-496d-b583-fd2ae21d4df4'))
+Result: False
+Finished evaluating template 'system-pre-steps.yml'
+********************************************************************************
+Template and static variable resolution complete. Final runtime YAML document:
+steps: []
+
+
+2020-03-24T03:25:57.4539723Z   MaxConcurrency: 0
+2020-03-24T03:25:57.4589721Z ##[section]Finishing: Prepare job CypressSetup

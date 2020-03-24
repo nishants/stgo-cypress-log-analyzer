@@ -1,0 +1,30 @@
+2020-03-24T03:43:08.2009025Z ##[section]Starting: DownloadPipelineArtifact
+2020-03-24T03:43:08.2103187Z ==============================================================================
+2020-03-24T03:43:08.2103582Z Task         : Download Pipeline Artifacts
+2020-03-24T03:43:08.2103885Z Description  : Download build and pipeline artifacts
+2020-03-24T03:43:08.2104134Z Version      : 2.2.0
+2020-03-24T03:43:08.2104391Z Author       : Microsoft Corporation
+2020-03-24T03:43:08.2104773Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/download-pipeline-artifact
+2020-03-24T03:43:08.2105206Z ==============================================================================
+2020-03-24T03:43:08.5875822Z Download from the specified build: #50640
+2020-03-24T03:43:08.5895684Z Download artifact to: d:\work\1\s\dist\frontend
+2020-03-24T03:43:09.1849086Z Information, ApplicationInsightsTelemetrySender will correlate events with X-TFS-Session 6204469e-4076-40f9-8fa1-19b3cc5036f4
+2020-03-24T03:43:09.1987160Z Information, DedupManifestArtifactClient will correlate http requests with X-TFS-Session 6204469e-4076-40f9-8fa1-19b3cc5036f4
+2020-03-24T03:43:09.2004501Z Information, Minimatch patterns: [**]
+2020-03-24T03:43:09.3081134Z Information, ArtifactHttpRetryMessageHandler.SendAsync: https://vsblobprodsu6weu.vsblob.visualstudio.com/Ad2f735ff-1e43-4ce8-826b-9e3578951332/_apis/dedup/chunks/5BE5EB485AA35263D0A183AC47B8E023F6BDFFCC68198CC201B48BFC9CC0800501 attempt 1/6 failed with StatusCode RedirectMethod, IsRetryableResponse False
+2020-03-24T03:43:09.5326514Z Information, Filtered 159 files from the Minimatch filters supplied.
+2020-03-24T03:43:09.5607521Z Information, Downloaded 0.0 MB out of 69.7 MB (0%).
+2020-03-24T03:43:12.7788783Z Information, Downloaded 69.7 MB out of 69.7 MB (100%).
+2020-03-24T03:43:12.7801346Z Information, 
+2020-03-24T03:43:12.7801748Z Download statistics:
+2020-03-24T03:43:12.7802197Z Total Content: 69.7 MB
+2020-03-24T03:43:12.7802643Z Physical Content Downloaded: 53.6 MB
+2020-03-24T03:43:12.7803104Z Compression Saved: 16.1 MB
+2020-03-24T03:43:12.7803548Z Local Caching Saved: 0.0 MB
+2020-03-24T03:43:12.7803958Z Chunks Downloaded: 1,010
+2020-03-24T03:43:12.7804327Z Nodes Downloaded: 0
+2020-03-24T03:43:12.7804577Z 
+2020-03-24T03:43:12.7992853Z Information, Download completed.
+2020-03-24T03:43:13.3460591Z Information, ApplicationInsightsTelemetrySender correlated 2 events with X-TFS-Session 6204469e-4076-40f9-8fa1-19b3cc5036f4
+2020-03-24T03:43:13.3463380Z Downloading artifact finished.
+2020-03-24T03:43:13.4010288Z ##[section]Finishing: DownloadPipelineArtifact

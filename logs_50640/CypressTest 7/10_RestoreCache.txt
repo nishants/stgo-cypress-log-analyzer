@@ -1,0 +1,32 @@
+2020-03-24T03:41:16.2229450Z ##[section]Starting: RestoreCache
+2020-03-24T03:41:16.2358580Z ==============================================================================
+2020-03-24T03:41:16.2359240Z Task         : Restore cache
+2020-03-24T03:41:16.2359809Z Description  : Restore a folder from a cache given a specified key.
+2020-03-24T03:41:16.2360367Z Version      : 1.0.18
+2020-03-24T03:41:16.2360824Z Author       : Microsoft Corp
+2020-03-24T03:41:16.2361243Z Help         : 
+2020-03-24T03:41:16.2361785Z ==============================================================================
+2020-03-24T03:41:16.8300957Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:41:16.9559749Z got service url from area
+2020-03-24T03:41:16.9560886Z https://vsblob.dev.azure.com/saxobank/
+2020-03-24T03:41:17.1255106Z Found tool in cache: artifacttool 0.2.128 x64
+2020-03-24T03:41:17.1257678Z d:\work\_tool\artifacttool\0.2.128\x64\ArtifactTool.exe
+2020-03-24T03:41:17.1281498Z SYSTEMVSSCONNECTION exists true
+2020-03-24T03:41:17.2068811Z got service url from area
+2020-03-24T03:41:17.6001295Z Downloading package: saxotrader-cypress-ci, version: 1.0.0-win32-e3ed82b2343500240b443cbbec7171cc62c792815d66a7ce6a90da090d2108d0 using feed id: 3ff3914b-c29e-482d-8724-811728213e7f
+2020-03-24T03:41:17.6189583Z [command]d:\work\_tool\artifacttool\0.2.128\x64\ArtifactTool.exe universal download --feed 3ff3914b-c29e-482d-8724-811728213e7f --service https://dev.azure.com/saxobank/ --package-name saxotrader-cypress-ci --package-version 1.0.0-win32-e3ed82b2343500240b443cbbec7171cc62c792815d66a7ce6a90da090d2108d0 --path d:\work\1\s\tmp_cache --patvar UNIVERSAL_DOWNLOAD_PAT --verbosity None
+2020-03-24T03:41:28.6468086Z {"@t":"2020-03-24T03:41:18.5947409Z","@m":"ApplicationInsightsTelemetrySender will correlate events with X-TFS-Session a0b445f9-6243-4dd4-9404-7caa39606868","@i":"29f52b6f","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:18.594Z"}
+2020-03-24T03:41:28.6471152Z {"@t":"2020-03-24T03:41:18.7878232Z","@m":"Obtained package metadata","@i":"ae648446","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:18.787Z"}
+2020-03-24T03:41:28.6473512Z {"@t":"2020-03-24T03:41:18.7937964Z","@m":"DedupManifestArtifactClient will correlate http requests with X-TFS-Session a0b445f9-6243-4dd4-9404-7caa39606868","@i":"cf691871","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:18.793Z"}
+2020-03-24T03:41:28.6476306Z {"@t":"2020-03-24T03:41:18.8373838Z","@m":"ArtifactHttpRetryMessageHandler.SendAsync: https://vsblobprodsu6weu.vsblob.visualstudio.com/Ad2f735ff-1e43-4ce8-826b-9e3578951332/_apis/dedup/chunks/50E6F377CF3E142C867AD15CF6247AB9BA24776886100CC176C9E4BB527B48C901 attempt 1/6 failed with StatusCode RedirectMethod, IsRetryableResponse False","@i":"cb1f8814","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:18.837Z"}
+2020-03-24T03:41:28.6479594Z {"@t":"2020-03-24T03:41:19.0060285Z","@m":"Could not initialize dataport.","@i":"62e541c0","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:19.006Z"}
+2020-03-24T03:41:28.6481556Z {"@t":"2020-03-24T03:41:19.0101610Z","@m":"Downloaded 0.0 MB out of 179.7 MB (0%).","@i":"79b31c9b","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:19.010Z"}
+2020-03-24T03:41:28.6483521Z {"@t":"2020-03-24T03:41:24.0089373Z","@m":"Downloaded 72.8 MB out of 179.7 MB (41%).","@i":"de815f4d","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:24.008Z"}
+2020-03-24T03:41:28.6485496Z {"@t":"2020-03-24T03:41:28.5715622Z","@m":"Downloaded 179.7 MB out of 179.7 MB (100%).","@i":"b01ceaf0","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:28.571Z"}
+2020-03-24T03:41:28.6488021Z {"@t":"2020-03-24T03:41:28.5725855Z","@m":"\r\nDownload statistics:\r\nTotal Content: 179.7 MB\r\nPhysical Content Downloaded: 179.7 MB\r\nCompression Saved: 0.0 MB\r\nLocal Caching Saved: 0.0 MB\r\nChunks Downloaded: 2,296\r\nNodes Downloaded: 8\r\n","@i":"4efc64c3","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:28.572Z"}
+2020-03-24T03:41:28.6491699Z {"@t":"2020-03-24T03:41:28.5800149Z","@m":"Download completed.","@i":"a846a6db","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:28.580Z"}
+2020-03-24T03:41:28.6493549Z {"@t":"2020-03-24T03:41:28.5801102Z","@m":"Download complete","@i":"4e25de8d","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:28.580Z"}
+2020-03-24T03:41:28.6495319Z {"@t":"2020-03-24T03:41:28.6031879Z","@m":"Success","@i":"1d9af52f","SourceContext":"ArtifactTool.Commands.UPackDownloadCommand","UtcTimestamp":"2020-03-24 03:41:28.603Z"}
+2020-03-24T03:41:28.6497239Z {"Version":"1.0.0-win32-e3ed82b2343500240b443cbbec7171cc62c792815d66a7ce6a90da090d2108d0","SuperRootId":"69E7DC33E23C448D2B61984745AA155A49003C3C4C5C1402208F04C5239B1A7402","ManifestId":"50E6F377CF3E142C867AD15CF6247AB9BA24776886100CC176C9E4BB527B48C901"}
+2020-03-24T03:41:28.6498846Z artifact downloaded
+2020-03-24T03:41:30.1747967Z ##[section]Finishing: RestoreCache

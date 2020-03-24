@@ -1,0 +1,25 @@
+2020-03-24T03:40:09.1979484Z ##[section]Starting: Memory check
+2020-03-24T03:40:09.3586152Z ==============================================================================
+2020-03-24T03:40:09.3588618Z Task         : PowerShell
+2020-03-24T03:40:09.3589214Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:40:09.3589520Z Version      : 2.165.0
+2020-03-24T03:40:09.3589975Z Author       : Microsoft Corporation
+2020-03-24T03:40:09.3590538Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:40:09.3590970Z ==============================================================================
+2020-03-24T03:40:11.9078966Z Generating script.
+2020-03-24T03:40:11.9455131Z ========================== Starting Command Output ===========================
+2020-03-24T03:40:11.9733708Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\936eb663-ef56-41cc-abe6-b3bab6119d79.ps1'"
+2020-03-24T03:40:12.3849541Z Checking for required free memory of 30%
+2020-03-24T03:40:12.7423450Z Free memory of 83.72% is enough
+2020-03-24T03:40:12.7441321Z Checking for required free cpu of: 50%
+2020-03-24T03:40:14.1223607Z 
+2020-03-24T03:40:14.1227636Z Timestamp                 CounterSamples                                                                               
+2020-03-24T03:40:14.1229712Z ---------                 --------------                                                                               
+2020-03-24T03:40:14.1232666Z 3/24/2020 3:40:14 AM      \\cptst0006qx\processor(_total)\% processor time :                                           
+2020-03-24T03:40:14.1236526Z                           0.323688852819359                                                                            
+2020-03-24T03:40:14.1244201Z                                                                                                                        
+2020-03-24T03:40:14.1245489Z                                                                                                                        
+2020-03-24T03:40:15.1411066Z Free cpu 99.9180182729328% is enough
+2020-03-24T03:40:15.1715232Z 
+2020-03-24T03:40:15.1715796Z 
+2020-03-24T03:40:15.2890797Z ##[section]Finishing: Memory check

@@ -1,0 +1,38 @@
+2020-03-24T03:41:30.1473728Z ##[section]Starting: ExtractFiles
+2020-03-24T03:41:30.1555942Z ==============================================================================
+2020-03-24T03:41:30.1556245Z Task         : Extract files
+2020-03-24T03:41:30.1556583Z Description  : Extract a variety of archive and compression files such as .7z, .rar, .tar.gz, and .zip
+2020-03-24T03:41:30.1556886Z Version      : 1.165.0
+2020-03-24T03:41:30.1557095Z Author       : Microsoft Corporation
+2020-03-24T03:41:30.1557448Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/extract-files
+2020-03-24T03:41:30.1557808Z ==============================================================================
+2020-03-24T03:41:30.4039837Z Relative file path: cache\nodemodules.7z resolving to: d:\work\1\s\cache\nodemodules.7z
+2020-03-24T03:41:31.5841002Z Found: 1 files to extract:
+2020-03-24T03:41:31.5841497Z d:\work\1\s\cache\nodemodules.7z
+2020-03-24T03:41:31.5844955Z Cleaning destination folder before extraction: d:\work\1\s\node_modules
+2020-03-24T03:41:31.5965673Z Creating destination folder: d:\work\1\s\node_modules
+2020-03-24T03:41:31.5984059Z Extracting file: d:\work\1\s\cache\nodemodules.7z
+2020-03-24T03:41:31.6028212Z [command]d:\work\_tasks\ExtractFiles_5e1e3830-fbfb-11e5-aab1-090c92bc4988\1.165.0\7zip\7z.exe x -od:\work\1\s\node_modules d:\work\1\s\cache\nodemodules.7z
+2020-03-24T03:43:11.6038129Z 
+2020-03-24T03:43:11.6039929Z 7-Zip [64] 16.00 : Copyright (c) 1999-2016 Igor Pavlov : 2016-05-10
+2020-03-24T03:43:11.6040594Z 
+2020-03-24T03:43:11.6041134Z Scanning the drive for archives:
+2020-03-24T03:43:11.6041633Z 1 file, 179646135 bytes (172 MiB)
+2020-03-24T03:43:11.6042057Z 
+2020-03-24T03:43:11.6042538Z Extracting archive: d:\work\1\s\cache\nodemodules.7z
+2020-03-24T03:43:11.6042967Z --
+2020-03-24T03:43:11.6043390Z Path = d:\work\1\s\cache\nodemodules.7z
+2020-03-24T03:43:11.6043790Z Type = 7z
+2020-03-24T03:43:11.6044201Z Physical Size = 179646135
+2020-03-24T03:43:11.6044617Z Headers Size = 1079356
+2020-03-24T03:43:11.6045135Z Method = LZMA2:24 BCJ
+2020-03-24T03:43:11.6045591Z Solid = +
+2020-03-24T03:43:11.6045973Z Blocks = 2
+2020-03-24T03:43:11.6046292Z 
+2020-03-24T03:43:11.6046680Z Everything is Ok
+2020-03-24T03:43:11.6047023Z 
+2020-03-24T03:43:11.6047430Z Folders: 20484
+2020-03-24T03:43:11.6047879Z Files: 129805
+2020-03-24T03:43:11.6048290Z Size:       1172232465
+2020-03-24T03:43:11.6048801Z Compressed: 179646135
+2020-03-24T03:43:11.6124492Z ##[section]Finishing: ExtractFiles

@@ -1,0 +1,450 @@
+Begin evaluating template '/azure-pipelines.cypress.yml'
+Begin transform: trigger
+Evaluating: value
+Result: Object
+End transform: trigger
+Begin transform: variables
+Evaluating: value
+Result: Object
+Evaluating: pair['key']
+Result: 'CYPRESS_CACHE_FOLDER'
+Evaluating: pair['value']
+Result: '$(System.DefaultWorkingDirectory)/node_modules/.azure_pipeline_cypress_cache'
+Evaluating: pair['key']
+Result: 'BABEL_LOADER_CACHE_DIR'
+Evaluating: pair['value']
+Result: '$(Build.SourcesDirectory)/.babel-loader-cache'
+Evaluating: pair['key']
+Result: 'BUILD_DATE'
+Evaluating: pair['value']
+Result: '$[format(''{0:yyyyMMdd}'', pipeline.startTime)]'
+End transform: variables
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/stability-check.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/stability-check.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/clean-sources.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/clean-sources.yml'
+End load: stepsTemplateReference
+Begin transform: step
+Evaluating: eq(value['checkout'], 'none')
+Expanded: eq('self', 'none')
+Result: False
+Evaluating: ne(value['checkout'], 'none')
+Expanded: ne('self', 'none')
+Result: True
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('checkout', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('fetchDepth', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('persistCredentials', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Result: Object
+Evaluating: value['checkout']
+Result: 'self'
+Evaluating: value
+Result: Object
+Evaluating: in(pair['key'], 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Expanded: in('checkout', 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Result: False
+Evaluating: in(pair['key'], 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Expanded: in('fetchDepth', 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Result: True
+Evaluating: pair['key']
+Result: 'fetchDepth'
+Evaluating: pair['value']
+Result: '200'
+Evaluating: in(pair['key'], 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Expanded: in('persistCredentials', 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Result: True
+Evaluating: pair['key']
+Result: 'persistCredentials'
+Evaluating: pair['value']
+Result: 'true'
+End transform: step
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/node-ensure-version.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/node-ensure-version.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/install-dependencies.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/install-dependencies.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/cypress-prepare.yml'
+Evaluating: eq(parameters['includeCoverage'], False)
+Expanded: eq('false', False)
+Result: True
+Evaluating: eq(parameters['includeCoverage'], False)
+Expanded: eq('false', False)
+Result: True
+Evaluating: eq(parameters['includeCoverage'], True)
+Expanded: eq('false', True)
+Result: False
+Evaluating: eq(parameters['includeCoverage'], False)
+Expanded: eq('false', False)
+Result: True
+Begin transform: step
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('publish', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('artifact', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Result: Object
+Evaluating: value['publish']
+Result: 'dist/frontend'
+Evaluating: value['artifact']
+Expanded: 'frontend'
+Result: True
+Evaluating: value['artifact']
+Result: 'frontend'
+End transform: step
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/cypress-prepare.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/cypress-pipeline-failed-slack-notification.yml'
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/slack-post.yml'
+Evaluating: parameters['displayName']
+Result: 'Send notification to #stgo-build-failures on failed cypress master pipeline'
+Evaluating: parameters['condition']
+Result: 'and(failed(), or(eq(variables[''Build.SourceBranch''], ''refs/heads/master''), startsWith(variables[''Build.SourceBranch''], ''refs/heads/release'')))'
+Evaluating: format('
+$user = "{0}"
+$channel = "{1}"
+$message = "{2}"
+$icon = "{3}"
+
+$token = "$(slack_app_key)"
+
+$url="https://slack.com/api/chat.postMessage"
+$body = @{{token=$token;channel=$channel;username=$user;text=$message;icon_url=$icon;pretty=1;parse="full";link_names="true"}}
+
+Write-Host "Sending slack notification to channel: $channel"
+Write-Host "Message: $message"
+Write-Host "From user: $user"
+Write-Host "Custom icon: $icon"
+
+Invoke-WebRequest -Uri $url -Method POST -Body $body | out-null
+', parameters['user'], parameters['channel'], parameters['message'], parameters['icon'])
+Result: '
+$user = "$env:BUILD_DEFINITIONNAME"
+$channel = "#stgo-build-failures"
+$message = ":rotating_light: @channel Cypress integration build on master is broken, please investigate 
+ https://dev.azure.com/saxobank/Platforms/_build/results?buildId=$env:BUILD_BUILDID"
+$icon = "https://avatars.slack-edge.com/2019-01-17/528389819366_e7a0672f0480b3e98d21_512.png"
+
+$token = "$(slack_app_key)"
+
+$url="https://slack.com/api/chat.postMessage"
+$body = @{token=$token;channel=$channel;username=$user;text=$message;icon_url=$icon;pretty=1;parse="full";link_names="true"}
+
+Write-Host "Sending slack notification to channel: $channel"
+Write-Host "Message: $message"
+Write-Host "From user: $user"
+Write-Host "Custom icon: $icon"
+
+Invoke-WebRequest -Uri $url -Method POST -Body $body | out-null
+'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/slack-post.yml'
+End load: stepsTemplateReference
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/cypress-pipeline-failed-slack-notification.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/stability-check.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/stability-check.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/clean-sources.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/clean-sources.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/cypress-clean-data.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/cypress-clean-data.yml'
+End load: stepsTemplateReference
+Begin transform: step
+Evaluating: eq(value['checkout'], 'none')
+Expanded: eq('self', 'none')
+Result: False
+Evaluating: ne(value['checkout'], 'none')
+Expanded: ne('self', 'none')
+Result: True
+Evaluating: transform('stepToTaskBaseProperties', value)
+Evaluating: arg0
+Result: Object
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('checkout', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('clean', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('fetchDepth', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Evaluating: in(pair['key'], 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Expanded: in('persistCredentials', 'condition', 'continueOnError', 'displayName', 'target', 'enabled', 'env', 'name', 'timeoutInMinutes')
+Result: False
+Result: Object
+Evaluating: value['checkout']
+Result: 'self'
+Evaluating: value
+Result: Object
+Evaluating: in(pair['key'], 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Expanded: in('checkout', 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Result: False
+Evaluating: in(pair['key'], 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Expanded: in('clean', 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Result: True
+Evaluating: pair['key']
+Result: 'clean'
+Evaluating: pair['value']
+Result: 'true'
+Evaluating: in(pair['key'], 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Expanded: in('fetchDepth', 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Result: True
+Evaluating: pair['key']
+Result: 'fetchDepth'
+Evaluating: pair['value']
+Result: '200'
+Evaluating: in(pair['key'], 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Expanded: in('persistCredentials', 'clean', 'fetchDepth', 'lfs', 'persistCredentials', 'submodules', 'path')
+Result: True
+Evaluating: pair['key']
+Result: 'persistCredentials'
+Evaluating: pair['value']
+Result: 'true'
+End transform: step
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/node-ensure-version.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/node-ensure-version.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/install-dependencies.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/install-dependencies.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/screen-resize.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/screen-resize.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/cypress-run.yml'
+Evaluating: parameters['ignoreTestFailure']
+Result: 'false'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/cypress-run.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/cypress-publish.yml'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/cypress-publish.yml'
+End load: stepsTemplateReference
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/cypress-pipeline-failed-slack-notification.yml'
+Begin load: stepsTemplateReference
+Begin evaluating template '/.azuredevops/pipelines/templates/slack-post.yml'
+Evaluating: parameters['displayName']
+Result: 'Send notification to #stgo-build-failures on failed cypress master pipeline'
+Evaluating: parameters['condition']
+Result: 'and(failed(), or(eq(variables[''Build.SourceBranch''], ''refs/heads/master''), startsWith(variables[''Build.SourceBranch''], ''refs/heads/release'')))'
+Evaluating: format('
+$user = "{0}"
+$channel = "{1}"
+$message = "{2}"
+$icon = "{3}"
+
+$token = "$(slack_app_key)"
+
+$url="https://slack.com/api/chat.postMessage"
+$body = @{{token=$token;channel=$channel;username=$user;text=$message;icon_url=$icon;pretty=1;parse="full";link_names="true"}}
+
+Write-Host "Sending slack notification to channel: $channel"
+Write-Host "Message: $message"
+Write-Host "From user: $user"
+Write-Host "Custom icon: $icon"
+
+Invoke-WebRequest -Uri $url -Method POST -Body $body | out-null
+', parameters['user'], parameters['channel'], parameters['message'], parameters['icon'])
+Result: '
+$user = "$env:BUILD_DEFINITIONNAME"
+$channel = "#stgo-build-failures"
+$message = ":rotating_light: @channel Cypress integration build on master is broken, please investigate 
+ https://dev.azure.com/saxobank/Platforms/_build/results?buildId=$env:BUILD_BUILDID"
+$icon = "https://avatars.slack-edge.com/2019-01-17/528389819366_e7a0672f0480b3e98d21_512.png"
+
+$token = "$(slack_app_key)"
+
+$url="https://slack.com/api/chat.postMessage"
+$body = @{token=$token;channel=$channel;username=$user;text=$message;icon_url=$icon;pretty=1;parse="full";link_names="true"}
+
+Write-Host "Sending slack notification to channel: $channel"
+Write-Host "Message: $message"
+Write-Host "From user: $user"
+Write-Host "Custom icon: $icon"
+
+Invoke-WebRequest -Uri $url -Method POST -Body $body | out-null
+'
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/slack-post.yml'
+End load: stepsTemplateReference
+Begin transform: stepsTemplate
+Evaluating: value['steps']
+Expanded: Object
+Result: True
+Evaluating: value['steps']
+Result: Object
+End transform: stepsTemplate
+Finished evaluating template '/.azuredevops/pipelines/templates/cypress-pipeline-failed-slack-notification.yml'
+End load: stepsTemplateReference
+Begin transform: pipeline
+Evaluating: value
+Result: Object
+Evaluating: ne(pair['key'], 'jobs')
+Expanded: ne('trigger', 'jobs')
+Result: True
+Evaluating: pair['key']
+Result: 'trigger'
+Evaluating: pair['value']
+Result: Object
+Evaluating: eq(pair['key'], 'jobs')
+Expanded: eq('trigger', 'jobs')
+Result: False
+Evaluating: ne(pair['key'], 'jobs')
+Expanded: ne('variables', 'jobs')
+Result: True
+Evaluating: pair['key']
+Result: 'variables'
+Evaluating: pair['value']
+Result: Object
+Evaluating: eq(pair['key'], 'jobs')
+Expanded: eq('variables', 'jobs')
+Result: False
+Evaluating: ne(pair['key'], 'jobs')
+Expanded: ne('jobs', 'jobs')
+Result: False
+Evaluating: eq(pair['key'], 'jobs')
+Expanded: eq('jobs', 'jobs')
+Result: True
+Evaluating: value['jobs']
+Result: Object
+End transform: pipeline
+Finished evaluating template '/azure-pipelines.cypress.yml'

@@ -1,0 +1,22 @@
+2020-03-24T03:33:55.7527821Z ##[section]Starting: create cache key
+2020-03-24T03:33:55.7619306Z ==============================================================================
+2020-03-24T03:33:55.7619669Z Task         : PowerShell
+2020-03-24T03:33:55.7619968Z Description  : Run a PowerShell script on Linux, macOS, or Windows
+2020-03-24T03:33:55.7622617Z Version      : 2.165.0
+2020-03-24T03:33:55.7622896Z Author       : Microsoft Corporation
+2020-03-24T03:33:55.7623254Z Help         : https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell
+2020-03-24T03:33:55.7623806Z ==============================================================================
+2020-03-24T03:33:56.7298113Z Generating script.
+2020-03-24T03:33:56.7694436Z ========================== Starting Command Output ===========================
+2020-03-24T03:33:56.7919241Z ##[command]"C:\windows\System32\WindowsPowerShell\v1.0\powershell.exe" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command ". 'd:\work\_temp\68e67e0c-88c8-48ce-8f7d-e6132fbb4751.ps1'"
+2020-03-24T03:33:57.1828734Z 
+2020-03-24T03:33:57.1829107Z 
+2020-03-24T03:33:57.1831471Z     Directory: D:\work\1\s
+2020-03-24T03:33:57.1831854Z 
+2020-03-24T03:33:57.1832152Z 
+2020-03-24T03:33:57.1837776Z Mode                LastWriteTime         Length Name                                                                  
+2020-03-24T03:33:57.1841195Z ----                -------------         ------ ----                                                                  
+2020-03-24T03:33:57.1846259Z d-----        3/24/2020   3:33 AM                .babel-loader-cache                                                   
+2020-03-24T03:33:57.2340097Z 
+2020-03-24T03:33:57.2340626Z 
+2020-03-24T03:33:57.2931340Z ##[section]Finishing: create cache key
